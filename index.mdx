@@ -1,97 +1,44 @@
 ---
-title: "Introduction"
-description: "Welcome to the new home for your documentation"
+title: "Introduction to PixlHub"
+description: "PixlHub is a high-performance data annotation platform designed to transform raw data into structured, production-ready training sets for AI models. It serves as a unified workspace that bridges the gap between massive datasets and high-precision ground truth."
+sidebarTitle: "Introduction to PixlHub"
 ---
 
-## Setting up
+## The Architecture
 
-Get your documentation site up and running in minutes.
+PixlHub uses a structured hierarchy to maintain order across large-scale data operations:
 
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
-</Card>
+- **Organizations:** The highest administrative level. This is where teams, permissions, and multiple workspaces are managed.
+- **Projects:** The operational hub for specific labeling goals. Each project contains a unique **Ontology** (classes and attributes) and specialized annotation tools.
+- **Datasets & Assets:** The library of raw source files. Assets are uploaded once and can be utilized across multiple projects without data duplication.
+- **Tasks:** The actual unit of production. PixlHub separates _Assets_ from _Tasks_, allowing for diverse labeling objectives to be generated from the same raw source material.
 
-## Make it yours
+## Core Capabilities
 
-Design a docs site that looks great and empowers your users.
+**Optimized Annotation Flow** The interface is built for speed. With a keyboard-first design and a high-performance canvas, the platform remains fluid even when handling complex polygons or hundreds of objects in a single frame.
+
+**Integrated Quality Control** Quality is enforced through a dedicated **Review Workflow**. Managers can track every label in real-time, providing feedback, rejecting errors, or approving completions to ensure the final output meets strict accuracy thresholds.
+
+**Operational Insights** Project progress is monitored through live dashboards. PixlHub provides granular analytics on label distribution, annotator velocity, and time-per-task, offering full visibility into the project lifecycle.
 
 <Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
-  >
-    Edit your docs locally and preview them in real time.
+  <Card title="Quickstart Guide" icon="lightbulb">
+    The fastest way to get up and running. This section covers creating an organization, setting up a first project, and uploading the initial dataset to start labeling in minutes.
   </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
+  <Card title="Key Essentials" icon="key-skeleton">
+    A deep dive into the PixlHub hierarchy. Learn how Organizations, Projects, Assets, and Tasks interact to keep large-scale data operations organized and scalable.
   </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
+  <Card title="Annotation Tools" icon="map">
+    A detailed look at the labeling interface. This guide explores the full suite of tools—from precision bounding boxes and polygons to complex classification attributes and keyboard shortcuts.
   </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
+  <Card title="API documentation" icon="terminal" href="/api-reference/introduction">
+    Understand how to set up review cycles for quality control, track team performance through analytics, and export final annotations in various formats.
+  </Card>
+  <Card title="Workflows & Exports" icon="network-wired">
+    Understand how to set up review cycles for quality control, track team performance through analytics, and export final annotations in various formats.
   </Card>
 </Columns>
 
-## Create beautiful pages
+## 
 
-Everything you need to create world-class documentation.
-
-<Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
-  </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
-  </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
-  </Card>
-</Columns>
-
-## Need inspiration?
-
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
+## 
