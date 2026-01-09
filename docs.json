@@ -21,6 +21,23 @@
             ]
           },
           {
+            "group": "Basics",
+            "pages": [
+              {
+                "group": "Smart Annotation Palette",
+                "pages": [
+                  "guides/basics/bounding-box",
+                  "guides/basics/polygon",
+                  "guides/basics/line",
+                  "guides/basics/point",
+                  "guides/basics/freeform",
+                  "guides/basics/comment",
+                  "guides/basics/ai-predictions"
+                ]
+              }
+            ]
+          },
+          {
             "group": "Essentials",
             "pages": [
               "guides/essentials/teams-and-roles",
