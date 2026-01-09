@@ -22,7 +22,15 @@
           },
           {
             "group": "Essentials",
-            "pages": []
+            "pages": [
+              "guides/essentials/teams-and-roles",
+              "guides/essentials/assets",
+              "guides/essentials/tasks",
+              "guides/essentials/label-schema",
+              "guides/essentials/workflow",
+              "guides/essentials/imports",
+              "guides/essentials/exports"
+            ]
           },
           {
             "group": "Annotation Modules",
