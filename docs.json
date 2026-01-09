@@ -79,7 +79,7 @@
         "href": "mailto:onur@pixldata.com"
       },
       {
-        "label": "Hub",
+        "label": "Login to PixlHub",
         "href": "https://hub.pixldata.com"
       }
     ],
@@ -108,5 +108,8 @@
       "linkedin": "https://linkedin.com/company/pixldata",
       "website": "https://pixldata.com"
     }
+  },
+  "appearance": {
+    "default": "light"
   }
 }
