@@ -141,5 +141,13 @@
   },
   "background": {
     "decoration": "grid"
+  },
+  "api": {
+    "playground": {
+      "display": "interactive"
+    }
+  },
+  "styling": {
+    "eyebrows": "breadcrumbs"
   }
 }
