@@ -138,5 +138,8 @@
   },
   "appearance": {
     "default": "light"
+  },
+  "background": {
+    "decoration": "gradient"
   }
 }
