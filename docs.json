@@ -21,6 +21,14 @@
             ]
           },
           {
+            "group": "Basics",
+            "pages": []
+          },
+          {
+            "group": "Annotation Modules",
+            "pages": []
+          },
+          {
             "group": "Customization",
             "hidden": true,
             "pages": [
