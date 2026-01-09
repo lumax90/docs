@@ -21,12 +21,28 @@
             ]
           },
           {
-            "group": "Basics",
-            "pages": []
+            "group": "Essentials",
+            "pages": [
+              "guides/essentials/untitled-page",
+              "untitled-page",
+              "untitled-page",
+              "untitled-page",
+              "untitled-page",
+              "guides/essentials/organizations",
+              "guides/essentials/organizations-copied-1",
+              "guides/essentials/organizations-copied-2"
+            ]
           },
           {
             "group": "Annotation Modules",
-            "pages": []
+            "pages": [
+              "guides/annotation-modules/untitled-page",
+              "guides/annotation-modules/untitled-page-copied-1",
+              "guides/annotation-modules/untitled-page-copied-2",
+              "guides/annotation-modules/untitled-page-copied-3",
+              "guides/annotation-modules/untitled-page-copied-4",
+              "guides/annotation-modules/untitled-page-copied-5"
+            ]
           },
           {
             "group": "Customization",
