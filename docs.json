@@ -5,7 +5,7 @@
   "colors": {
     "primary": "#2563eb",
     "light": "#27a2f4",
-    "dark": "#06ca60"
+    "dark": "#07b156"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -22,6 +22,7 @@
           },
           {
             "group": "Customization",
+            "hidden": true,
             "pages": [
               "essentials/settings",
               "essentials/navigation"
@@ -29,6 +30,7 @@
           },
           {
             "group": "Writing content",
+            "hidden": true,
             "pages": [
               "essentials/markdown",
               "essentials/code",
@@ -38,6 +40,7 @@
           },
           {
             "group": "AI tools",
+            "hidden": true,
             "pages": [
               "ai-tools/cursor",
               "ai-tools/claude-code",
