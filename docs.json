@@ -24,6 +24,16 @@
             "group": "Basics",
             "pages": [
               {
+                "group": "Canvas",
+                "pages": [
+                  "guides/basics/interactive-toolbar",
+                  "guides/basics/canvas-settings",
+                  "guides/basics/right-drawer",
+                  "guides/basics/class-definitions",
+                  "guides/basics/object-instances"
+                ]
+              },
+              {
                 "group": "Smart Annotation Palette",
                 "pages": [
                   "guides/basics/bounding-box",
@@ -35,11 +45,9 @@
                   "guides/basics/ai-predictions"
                 ]
               },
-              "guides/basics/interactive-toolbar",
-              "guides/basics/object-instances",
-              "guides/basics/class-definitions",
-              "guides/basics/canvas-settings",
-              "guides/basics/right-drawer"
+              "guides/basics/workspaces",
+              "guides/basics/theme-toggle-and-language-switcher",
+              "guides/basics/notifications"
             ]
           },
           {
