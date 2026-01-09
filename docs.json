@@ -22,16 +22,7 @@
           },
           {
             "group": "Essentials",
-            "pages": [
-              "guides/essentials/teams-roles",
-              "untitled-page",
-              "untitled-page",
-              "untitled-page",
-              "untitled-page",
-              "guides/essentials/organizations",
-              "guides/essentials/organizations-copied-1",
-              "guides/essentials/organizations-copied-2"
-            ]
+            "pages": []
           },
           {
             "group": "Annotation Modules",
