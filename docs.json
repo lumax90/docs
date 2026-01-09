@@ -23,6 +23,7 @@
           {
             "group": "Basics",
             "pages": [
+              "guides/basics/guidelines",
               {
                 "group": "Canvas",
                 "pages": [
@@ -37,6 +38,7 @@
                 "group": "Smart Annotation Palette",
                 "pages": [
                   "guides/basics/bounding-box",
+                  "guides/basics/smart-annotation-palette/ocr-tool",
                   "guides/basics/polygon",
                   "guides/basics/line",
                   "guides/basics/point",
