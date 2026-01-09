@@ -26,6 +26,7 @@
               "guides/essentials/teams-and-roles",
               "guides/essentials/assets",
               "guides/essentials/tasks",
+              "guides/annotation-modules/untitled-page-copied-5",
               "guides/essentials/label-schema",
               "guides/essentials/workflow",
               "guides/essentials/imports",
@@ -35,12 +36,11 @@
           {
             "group": "Annotation Modules",
             "pages": [
-              "guides/annotation-modules/untitled-page",
-              "guides/annotation-modules/untitled-page-copied-1",
-              "guides/annotation-modules/untitled-page-copied-2",
-              "guides/annotation-modules/untitled-page-copied-3",
-              "guides/annotation-modules/untitled-page-copied-4",
-              "guides/annotation-modules/untitled-page-copied-5"
+              "guides/annotation-modules/image-annotation-tool",
+              "guides/annotation-modules/video-annotation-tool",
+              "guides/annotation-modules/audio-annotation-tool",
+              "guides/annotation-modules/rlhf-tool",
+              "guides/annotation-modules/lidar-tool"
             ]
           },
           {
