@@ -140,6 +140,6 @@
     "default": "light"
   },
   "background": {
-    "decoration": "gradient"
+    "decoration": "grid"
   }
 }
