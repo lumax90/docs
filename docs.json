@@ -23,10 +23,6 @@
           {
             "group": "Basics",
             "pages": [
-              "guides/basics/object-instances",
-              "guides/basics/class-definitions",
-              "guides/basics/canvas-settings",
-              "guides/basics/right-drawer",
               {
                 "group": "Smart Annotation Palette",
                 "pages": [
@@ -38,7 +34,12 @@
                   "guides/basics/comment",
                   "guides/basics/ai-predictions"
                 ]
-              }
+              },
+              "guides/basics/interactive-toolbar",
+              "guides/basics/object-instances",
+              "guides/basics/class-definitions",
+              "guides/basics/canvas-settings",
+              "guides/basics/right-drawer"
             ]
           },
           {
