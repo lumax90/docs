@@ -1,4 +1,30 @@
 ---
-title: 'OCR Tool'
+title: "OCR Tool"
+description: "The OCR (Optical Character Recognition) Tool is a specialized extension of the Bounding Box, designed to detect and digitize text directly from images. By integrating character recognition into the standard annotation flow, PixlHub eliminates the need for manual transcription."
 ---
 
+![Ocr Boundingbox Tool](/images/ocr-boundingbox-tool.jpeg)
+
+### **Activation & Setup**
+
+The OCR functionality is linked to the Bounding Box tool. To enable it:
+
+1. **Select BBox:** Choose the Bounding Box from the **Smart Tool Palette**.
+2. **Toggle OCR Mode:** In the **Interactive Toolbar** (at the top), switch the mode from a standard BBox to an **OCR Box**.
+
+Once active, any box drawn on the canvas is treated as a text detection region.
+
+### **Scanning Modes**
+
+PixlHub provides two ways to process text, allowing for both manual control and high-volume automation:
+
+- **Manual Scan:** After drawing a box, right-click to open the **Context Menu** and select **"Scan"**. This triggers the recognition engine for that specific region.
+- **Auto-Scan:** For faster workflows, the **Auto-Scan** option can be toggled on via the Interactive Toolbar. When enabled, PixlHub automatically performs text extraction the moment a box is completed, instantly populating the associated text field.
+
+### **Privacy & Security (Local Inference)**
+
+To meet the requirements of high-security environments and sensitive data projects, the OCR engine is built with a "security-first" architecture:
+
+- **Local Models:** All recognition is performed using modified OCR models running locally on the system.
+- **No External Dependencies:** The process does not rely on third-party APIs or external cloud connections.
+- **Data Sovereignty:** Since no data is transmitted to external servers, the OCR tool is fully compliant with strict data privacy regulations, ensuring that sensitive information never leaves the local environment.
