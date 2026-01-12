@@ -34,3 +34,16 @@ The following models are accessible via the **Smart Tool Palette**:
   title="Auto Object Detection Pixlhub"
   className="mx-auto"
 />
+
+**3. Smart Segment (Local SAM)** This tool allows for complex segmentation with zero manual tracing.
+
+- **Workflow:** The user places a single **Point** on the target object.
+- **AI Action:** Powered by a modified **Segment Anything Model (SAM)**, the AI identifies the entire structure of the object and wraps it in a precise **Polygon**. It is the most efficient way to label irregular shapes with a single click.
+
+![Octopus Polygon From Point](/images/octopus-polygon-from-point.gif)
+
+### **Workflow Integration**
+
+AI-generated labels are treated as standard annotations. Once the AI provides a prediction, annotators can manually refine, resize, or delete the results just like any other label. This "Human-in-the-loop" approach ensures that speed never comes at the expense of accuracy.
+
+---
