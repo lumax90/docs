@@ -1,4 +1,32 @@
 ---
-title: 'Polygon'
+title: "Polygon"
+description: "The Polygon Tool is used for high-precision instance and semantic segmentation. It allows for the annotation of complex or irregular shapes that cannot be accurately captured by standard bounding boxes."
 ---
 
+<img
+  src="/images/polygon-tool-1.gif"
+  alt="Polygon Tool 1"
+  title="Polygon Tool 1"
+  className="mx-auto"
+/>
+
+### **Getting Started**
+
+- **Tool Selection:** The Polygon Tool is selected via the **Smart Tool Palette**.
+- **Efficiency (Tool Persistence):** To speed up the workflow, the last selected tool remains active by default. There is no need to re-select the Polygon Tool after completing a shape; the user can immediately begin drawing the next object.
+- **Closing a Shape:** A polygon can be finalized in two ways:
+  1. Clicking back on the **starting point** (the first node).
+  2. Pressing the **Enter** key to automatically close the shape from the last point to the first.
+
+### **Interactive Toolbar: Polygon Modes**
+
+When the Polygon Tool is active, the **Interactive Toolbar** provides four specialized modes to handle overlapping shapes and complex geometries. These modes allow users to manage how new polygons interact with existing ones:
+
+1. **Overwrite:** The default mode. New polygons are drawn independently, regardless of existing annotations.
+2. **Subtract:** Used to cut out a section from an existing polygon. This is ideal for creating "holes" or removing specific parts from a larger shape (e.g., labeling a donut shape).
+3. **Auto Subtract:** A smart mode that automatically trims the new polygon so it does not overlap with existing shapes, ensuring perfectly aligned boundaries without manual effort.
+4. **Union:** Allows for the merging of two or more polygons. When used, the new shape is combined with a selected existing polygon to form a single, unified logical entity.
+
+### **Precision & Speed**
+
+The tool is optimized for high-speed vertex placement. Whether defining a simple triangle or a complex 100-point boundary, the canvas remains responsive, allowing for professional-grade segmentation at scale.
