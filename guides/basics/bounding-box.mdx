@@ -1,4 +1,27 @@
 ---
-title: 'Bounding Box'
+title: "Bounding Box"
+description: "The Bounding Box is the fundamental tool for object detection and localization. In PixlHub, the Bounding Box is not a static tool; it can be adapted into three distinct variations depending on the project's requirements."
 ---
 
+![Bounding Box Tool](/images/bounding-box-tool.jpeg)
+
+### **The Interactive Toolbar**
+
+Upon selecting the Bounding Box from the **Smart Tool Palette**, the **Interactive Toolbar** (located just below the header) dynamically updates. While this toolbar typically houses general controls like zoom and fit-to-screen, it transforms to show specific modification modes whenever a drawing tool is active.
+
+This allows users to switch between different BBox behaviors on the fly without changing the underlying label schema.
+
+### **Bounding Box Variations**
+
+PixlHub supports three primary modes for box-based annotations:
+
+1. **Standard BBox:** The classic axis-aligned rectangular box used for general object detection. It follows standard industry behavior for resizing and placement.
+2. **Rotating BBox:** Accessible via the Interactive Toolbar, this mode allows the box to be rotated at any angle. This is essential for labeling objects that are not aligned with the horizontal or vertical axes (e.g., tilted vehicles or overhead aerial imagery).
+3. **OCR Box:** When this mode is active, the selected area is used to extract text content. The OCR Box automatically attempts to identify and digitize any text within the boundaries, linking the string data directly to the annotation.
+
+### **Interaction & Context Menu**
+
+Beyond the toolbar, Bounding Boxes include standard interactive features to maintain a high-speed workflow:
+
+- **Context Menu:** Right-clicking any BBox on the canvas opens a context menu. This provides quick access to common actions such as deleting, locking, or duplicating the label.
+- **Canvas Controls:** Standard drag-and-drop placement and corner-point resizing are available across all three BBox variations.
