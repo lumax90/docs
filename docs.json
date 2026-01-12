@@ -37,6 +37,7 @@
               {
                 "group": "Smart Annotation Palette",
                 "pages": [
+                  "guides/basics/smart-annotation-palette/smart-tool-palette",
                   "guides/basics/bounding-box",
                   "guides/basics/smart-annotation-palette/ocr-tool",
                   "guides/basics/polygon",
