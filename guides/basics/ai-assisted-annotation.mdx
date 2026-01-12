@@ -1,4 +1,36 @@
 ---
-title: "AI-Assisted Annotation"
+title: "AI Assisted Annotations"
 description: "PixlHub integrates advanced machine learning models directly into the annotation workflow to accelerate the labeling process. These tools allow for complex annotations to be generated with minimal human input while maintaining high precision."
 ---
+
+### **Local Inference & Privacy**
+
+All AI models within PixlHub are modified for optimized performance and run **locally**. The platform does not send data to external APIs or third-party servers. This ensures that even when using AI-assisted tools, sensitive data remains entirely within the local environment.
+
+### **Smart AI Tools**
+
+The following models are accessible via the **Smart Tool Palette**:
+
+**1. Polygon from BBox** This tool combines the speed of a bounding box with the precision of a polygon.
+
+- **Workflow:** The user draws a standard box around an object.
+- **AI Action:** The model instantly identifies the object's boundaries within that box and converts it into a high-fidelity **Polygon**. This is ideal for quickly segmenting objects with complex edges.
+
+<img
+  src="/images/box-to-polygon.gif"
+  alt="Box To Polygon"
+  title="Box To Polygon"
+  className="mx-auto"
+/>
+
+**2. Auto-Detect Objects (Local YOLO)** Designed for high-volume initial labeling, this tool can populate an entire image with annotations in a single click.
+
+- **Workflow:** Activate the tool with one click on the canvas.
+- **AI Action:** Utilizing a modified **YOLO** model, the platform detects all recognizable objects in the frame and automatically labels them as **Bounding Boxes** based on the selected label schema.
+
+<img
+  src="/images/auto-object-detection-pixlhub.gif"
+  alt="Auto Object Detection Pixlhub"
+  title="Auto Object Detection Pixlhub"
+  className="mx-auto"
+/>
