@@ -1,4 +1,33 @@
 ---
-title: 'Freeform'
+title: "Freeform"
+description: "The Freeform Tool provides a high-speed alternative to the standard Polygon Tool, allowing users to trace complex shapes with a continuous fluid motion rather than manual vertex placement."
 ---
 
+<img
+  src="/images/freeform-tool.gif"
+  alt="Freeform Tool"
+  title="Freeform Tool"
+  className="mx-auto"
+/>
+
+### **Usage and Conversion**
+
+- **Drawing Process:** Unlike the click-by-click method of the Polygon Tool, the Freeform Tool allows users to draw shapes freely as if using a pen.
+- **Auto-Conversion:** Once the stroke is completed, the platform utilizes a path simplification algorithm to automatically convert the freehand drawing into a structured **Polygon**. This ensures that the final annotation remains editable and compatible with standard segmentation formats.
+- **Finalizing:** Releasing the mouse button or closing the loop automatically triggers the conversion process.
+
+### **Interactive Toolbar: Drawing Modes**
+
+The Freeform Tool shares the same operational flexibility as the Polygon Tool. Through the **Interactive Toolbar**, users can select from four distinct modes:
+
+1. **Overwrite:** The new shape is drawn independently.
+2. **Subtract:** The freehand stroke cuts out a section from an existing polygon.
+3. **Auto Subtract:** The platform automatically trims the freeform shape so it does not overlap with existing boundaries.
+4. **Union:** The new freeform shape is merged into a single logical entity with an existing polygon.
+
+### **Customization: Point Density**
+
+The precision of the freeform-to-polygon conversion can be adjusted to match the complexity of the object:
+
+- **Point Frequency:** Users can control how many vertices are generated during the conversion. A higher density captures more detail, while a lower density creates a simpler, more manageable polygon.
+- **Configuration:** These settings are located under the **Freeform Settings** section within the **Canvas Settings** menu. Adjusting the frequency allows for a perfect balance between speed and geometric accuracy.
