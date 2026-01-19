@@ -145,8 +145,8 @@
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Login PixlHub",
+      "href": "https://hub.pixldata.com"
     }
   },
   "contextual": {
