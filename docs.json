@@ -141,7 +141,7 @@
     ],
     "primary": {
       "type": "button",
-      "label": "Login PixlHub",
+      "label": "Login",
       "href": "https://hub.pixldata.com"
     }
   },
