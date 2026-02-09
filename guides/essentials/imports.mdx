@@ -1,4 +1,40 @@
 ---
-title: 'Imports'
+title: "Imports"
 ---
 
+The **Import** page allows you to bring existing annotations from external sources or previous projects into PixlHub. Whether you are migrating a dataset or utilizing pre-labeled data, the import system ensures that labels are correctly mapped to your current assets.
+
+### **Pre-Import Checklist**
+
+To ensure a successful data merge, follow these preparation steps:
+
+- **Task Status:** Change the status of the target tasks to **"Prepare."** Annotations can only be imported into tasks that are in this stage to prevent overwriting active work.
+- **Format Selection:** Prepare your annotation files in one of the supported formats: **PixlHub Native (JSON)**, **COCO**, or **YOLO**.
+
+### **Import Workflow**
+
+The system follows a four-step verification process to maintain data integrity:
+
+1. **Upload:** Drag and drop or click to upload your annotation file (Native JSON or COCO/YOLO formats).
+2. **Review Validation:** PixlHub automatically parses the file and provides a validation report. This shows how many labels were found and how they align with your current project.
+3. **Conflict Check:** Review any warnings regarding unmatched filenames or ID discrepancies.
+4. **Confirm:** Once the validation results are reviewed, click confirm to apply the annotations to your tasks.
+
+### **Supported Formats & Matching Logic**
+
+The accuracy of an import depends on the format and the underlying matching logic:
+
+- **PixlHub Native Format (Recommended):** This is the most accurate method. It uses **Unique IDs** to match annotations directly to the specific asset and label schema. It is highly recommended for project migrations or backups.
+- **External Formats (COCO & YOLO):** These formats rely on **Filename Matching**. While convenient for importing data from other platforms, this method is less precise as it can be affected by duplicate filenames across different folders.
+
+> **Note:** For the best accuracy and to avoid issues with duplicate filenames, use the PixlHub Native format whenever possible.
+
+### **Import History**
+
+Every import attempt is logged in the **Import History** table, providing a full audit trail of external data additions. This table includes:
+
+- **Date & Format:** When the import occurred and which file type was used.
+- **Status:** Whether the import was successful, failed, or completed with warnings.
+- **Imported vs. Total:** A comparison of the number of annotations successfully added versus the total found in the file.
+- **Matched Tasks:** The number of tasks that successfully received new labels.
+- **Errors:** A detailed count of any issues encountered, allowing for quick troubleshooting of file formatting or naming conflicts.
