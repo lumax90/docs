@@ -1,4 +1,48 @@
 ---
-title: 'Tasks'
+title: "Tasks"
 ---
 
+Tasks are the operational units of PixlHub. While **Assets** represent the raw data, **Tasks** represent that data within a workflow, assigned to specific users and tracked through various stages of the labeling lifecycle.
+
+### **Task Management & Metrics**
+
+The Tasks page provides a high-level overview of project progress through a detailed data table. Each entry allows managers to monitor the health and velocity of the project using the following metrics:
+
+- **Status:** The current stage of the task (e.g., Prepare, Label, Review, Completed).
+- **Assignee:** The specific user currently responsible for the task.
+- **Duration:** The active time spent by annotators on the task.
+- **Object Count:** The total number of annotations/objects created within the task.
+- **Split:** The dataset category (Train, Validation, or Test) assigned to the task.
+- **Task History:** A chronological log of every action, status change, and user interaction.
+- **Operational Tags:** Visibility into priority levels, batch assignments, "skipped" status, and the exact time the task entered the queue.
+
+![Tasks Columns](/images/tasks-columns.png)
+
+### **Bulk Operations**
+
+To manage large-scale datasets efficiently, PixlHub allows for administrative actions to be performed on multiple selected tasks simultaneously.
+
+#### **1. Change Status**
+
+This core operation moves tasks between different stages of the workflow. When changing status, managers can also perform "cleanup" actions via a modal window:
+
+- **Remove Annotations:** Wipes all existing labels so annotators can start from scratch.
+- **Remove Assignees:** Unassigns users, returning the tasks to the general pool/queue.
+- **Remove Stage History:** Deletes the chronological record of the task's journey.
+- **Remove Duration:** Resets the "time spent" metric to zero.
+
+![Ekran Resmi2026 02 0910 23 53](/images/EkranResmi2026-02-0910.23.53.png)
+
+#### **2. Set Split**
+
+This function organizes data for machine learning workflows. Tasks can be assigned manually or via **Auto Split** into three standard categories:
+
+- **Train:** Data used for model training.
+- **Validation:** Data used for hyperparameter tuning and progress monitoring.
+- **Test:** Independent data used for the final model evaluation.
+
+![Split](/images/split.png)
+
+#### **3. Clear Skip**
+
+If an annotator "skips" a task due to ambiguity or poor image quality, it is removed from the active queue. The **Clear Skip** operation resets this status, allowing the task to be re-evaluated or re-labeled.
