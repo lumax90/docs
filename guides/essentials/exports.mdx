@@ -1,4 +1,48 @@
 ---
-title: 'Exports'
+title: "Exports"
 ---
 
+The **Export** page is where users extract their annotated data for machine learning model training, analysis, or third-party integration. PixlHub provides a transparent preview of the dataset and supports a wide array of industry-standard formats to ensure compatibility with any AI pipeline.
+
+### **Export Summary & Analytics**
+
+Before generating a file, PixlHub provides a real-time summary of the data included in the current selection. This helps managers verify the dataset's composition without needing to open the files:
+
+- **Task Status Counts:** View the exact number of **Completed**, **Labeled**, and **Ready** tasks.
+- **Annotation Types:** A breakdown of the geometry types included (e.g., Bounding Boxes, Polygons, Points).
+- **Labels Distribution:** A detailed list showing how many instances of each class (e.g., "Pothole," "Vehicle") are present in the export.
+
+### **Filtering Options**
+
+To export specific subsets of data, users can apply a **Date Range Filter**. This allows for the extraction of only those tasks that were completed within a specific timeframe, making it easy to manage versioning or incremental model updates.
+
+---
+
+### **Supported Export Formats**
+
+PixlHub supports a diverse range of formats, including a **Schema Live Preview** that shows an example structure of the chosen format before the export starts:
+
+- **JSON (Native):** The most comprehensive format. It supports all annotation types and nested attributes. Recommended for backups or migrating data between PixlHub projects.
+- **COCO JSON:** The industry standard for object detection and segmentation tasks.
+- **YOLO (Darknet):** Optimized for YOLO-based object detection models.
+- **YOLOv8 Segmentation:** Specifically formatted for the latest segmentation models in the YOLO ecosystem.
+- **Pascal VOC (XML):** A classic format widely used in academic and legacy computer vision projects.
+- **CSV (Simple):** A tabular format for quick data analysis or spreadsheet-based reviews.
+- **Custom Template:** Allows users to define their own structure to meet specific pipeline requirements.
+
+---
+
+### **Advanced Export Options**
+
+Users can fine-tune the contents of the export package using the following configuration toggles:
+
+- **Include Asset Metadata:** Adds dimensions, batch information, and other asset-level details to the export.
+- **Include Non-Reviewed Tasks:** By default, exports often focus on completed data. This option allows including tasks that are **Labeled** but have not yet passed the **Review** stage.
+- **Include Review Metadata:** Includes information regarding the review process, such as the reviewer's name and the date of approval.
+- **Organize by Train/Val/Test Split:** Automatically organizes the exported files into separate folders based on the split assignments defined in the **Tasks** page. This makes the data immediately ready for model training scripts.
+
+---
+
+### **Export History**
+
+Every export generated is stored in the **Export History** table. This allows team members to download previous versions of the dataset at any time, providing a clear audit trail of what data was used for which model version.
