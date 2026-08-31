@@ -1,44 +1,74 @@
 ---
-title: "Comment"
-description: "The Comment Tool is the primary communication layer within PixlHub. It is used to flag edge cases, discuss problematic assets, or provide specific feedback during the labeling and review process."
+title: "Comments"
+description: "Discuss annotation questions exactly where they occur: pin threaded comments to image locations in PixlHub, mention teammates, and resolve them when settled."
 ---
 
-<img
-  src="/images/comment-tool-1.png"
-  alt="Comment Tool 1"
-  title="Comment Tool 1"
-  className="mx-auto"
-/>
+Half of labeling quality is communication: is this a Product or a Price Tag, does the guideline cover this edge case, why was this task rejected? PixlHub keeps those conversations pinned to the exact pixels they are about, instead of losing them in chat apps three tools away.
 
-### **Adding Comments**
+<Info>
+Comments are available to every project role, on every task. Reviewers use the same mechanism to explain rejections, so labelers see feedback in place rather than in a status field.
+</Info>
 
-There are two ways to initiate a conversation within a task:
+## Pin a comment to a location
 
-1. **Coordinate-Based Comments:** Select the Comment Tool from the **Smart Tool Palette** and click on a specific point on the canvas. This opens a modal window where the user can type their message and save it by clicking **"Add Comment."**
-2. **Annotation-Specific Comments:** A comment can be linked directly to an existing label (e.g., a specific Bounding Box or Polygon). By right-clicking an annotation and selecting "Add Comment" from the **Context Menu**, the platform automatically embeds the **Annotation ID** into the message, ensuring there is no confusion about which object is being discussed.
+<Steps>
+  <Step title="Pick the Comment tool">
+    Click the comment icon at the bottom of the floating palette (or press C).
+  </Step>
+  <Step title="Click the spot">
+    Click where the question lives: the ambiguous object, the blurry region, the price tag in dispute. A pin appears and the composer opens.
+  </Step>
+  <Step title="Write and send">
+    Type your note. Mention a teammate with @ to notify them. Send with the shortcut shown in the composer (Ctrl or Cmd + Enter) or the send button.
+  </Step>
+</Steps>
 
-<img
-  src="/images/comment-tool-2.jpeg"
-  alt="Comment Tool 2"
-  title="Comment Tool 2"
-  className="mx-auto"
-/>
+<Frame caption="The composer opens right at the pin; the canvas dims so the discussion point stays in focus.">
+  <img src="/images/docs/editor/comment-composer.jpg" alt="PixlHub comment composer open on a supermarket aisle image with a purple location pin" />
+</Frame>
 
-### **Collaboration Features**
+The whole flow takes seconds:
 
-- **Mentions:** Users can use the **"@"** symbol to mention and notify specific team members within a comment. This is the standard way to assign a query to a manager or a fellow annotator.
-- **Centralized Tracking:** All comments associated with a project are aggregated under the **Comments Tab** in the **Project Details** page. This provides a high-level view of all ongoing discussions and unresolved issues across the entire dataset.
+<video autoPlay muted loop playsInline className="w-full rounded-xl border border-zinc-200" src="/images/docs/editor/add-comment.mp4"></video>
 
-<img
-  src="/images/comment-tool-3.jpeg"
-  alt="Comment Tool 3"
-  title="Comment Tool 3"
-  className="mx-auto"
-/>
+## Follow the thread
 
-### **Managing Comments**
+Every pinned comment also lives in the **Comments** panel on the right rail, with filters for All, Open and Resolved. Replies keep the discussion threaded under the original pin, and the avatar marker stays on the canvas so anyone opening the task sees where the conversation points.
 
-To maintain a clean workflow, comments follow a set of permission rules:
+<Frame caption="The Comments panel: open and resolved filters, threaded replies, and the same pin mirrored on the canvas.">
+  <img src="/images/docs/editor/comment-thread.jpg" alt="PixlHub Comments panel showing an open threaded comment about price labels" />
+</Frame>
 
-- **Resolving & Deletion:** A comment can be marked as "Resolved" once the issue is addressed.
-- **Permissions:** Standard users can only delete or resolve the comments they have created. **Project Managers**, however, have full administrative rights to resolve or delete any comment within the project to ensure the workflow remains unblocked.
+Unread activity is easy to spot: the Comments tab shows a notification dot when a task has discussion you have not seen.
+
+## Comments that actually help
+
+- **Point at the pixels.** "The third shelf label from the left" is a sentence; a pin is an answer. Place the pin on the object, not near it.
+- **Mention the person who can decide.** An @ to the project manager turns a stalled question into a notification in their queue.
+- **Resolve when settled.** Open threads are a to-do list; resolving keeps the Open filter meaningful for reviewers sweeping a project.
+- **Guideline gaps become comments, comments become guidelines.** When the same question appears on the third task, the answer belongs in the project Guidelines, one click away in the right rail.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Who sees my comments?">
+    Everyone with access to the task: labelers assigned to it, reviewers and project managers. Comments are collaboration, not private notes.
+  </Accordion>
+  <Accordion title="Do comments affect the exported data?">
+    No. Comments are workflow metadata, not annotations, so exports stay clean. They remain attached to the task for audit and context.
+  </Accordion>
+  <Accordion title="Can I comment without a location?">
+    Task-level discussion lives in the same Comments panel; the pin is optional context. Use pinned comments whenever the question is about a specific region, which in practice is most of the time.
+  </Accordion>
+</AccordionGroup>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Guidelines" icon="book-open" href="/guides/basics/guidelines">
+    Where settled answers should end up.
+  </Card>
+  <Card title="Teams and roles" icon="users" href="/guides/essentials/teams-and-roles">
+    Who can label, review and decide in a project.
+  </Card>
+</CardGroup>

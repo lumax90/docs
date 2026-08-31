@@ -1,33 +1,81 @@
 ---
-title: "Freeform"
-description: "The Freeform Tool provides a high-speed alternative to the standard Polygon Tool, allowing users to trace complex shapes with a continuous fluid motion rather than manual vertex placement."
+title: "Freeform Tool"
+description: "Trace organic, irregular shapes in PixlHub with continuous freehand drawing: one press-drag-release instead of dozens of clicked vertices."
 ---
 
-<img
-  src="/images/freeform-tool.gif"
-  alt="Freeform Tool"
-  title="Freeform Tool"
-  className="mx-auto"
-/>
+Clicking vertices around a cloud, a pastry, a plant or a puddle is slow and joyless. The Freeform tool trades clicks for a single continuous stroke: press, trace the outline like a pencil, release, done. PixlHub converts the stroke into an editable shape.
 
-### **Usage and Conversion**
+<Info>
+Available in image projects. Freeform shapes behave like polygons after creation: same class system, same vertex editing, same export geometry.
+</Info>
 
-- **Drawing Process:** Unlike the click-by-click method of the Polygon Tool, the Freeform Tool allows users to draw shapes freely as if using a pen.
-- **Auto-Conversion:** Once the stroke is completed, the platform utilizes a path simplification algorithm to automatically convert the freehand drawing into a structured **Polygon**. This ensures that the final annotation remains editable and compatible with standard segmentation formats.
-- **Finalizing:** Releasing the mouse button or closing the loop automatically triggers the conversion process.
+## When freehand beats clicking
 
-### **Interactive Toolbar: Drawing Modes**
+| Shape | Best tool |
+|---|---|
+| Rectangular-ish, speed first | [Bounding Box](/guides/basics/bounding-box) |
+| Angular with clear corners (signs, buildings, packaging) | [Polygon](/guides/basics/polygon) |
+| Organic and curvy (food, plants, fabric, people in soft poses) | **Freeform** |
+| Linear structure, open path | [Line](/guides/basics/line) |
 
-The Freeform Tool shares the same operational flexibility as the Polygon Tool. Through the **Interactive Toolbar**, users can select from four distinct modes:
+The demo below uses a supermarket meringue bag: crinkled plastic, no straight edge anywhere, exactly the shape vertex-clicking hates.
 
-1. **Overwrite:** The new shape is drawn independently.
-2. **Subtract:** The freehand stroke cuts out a section from an existing polygon.
-3. **Auto Subtract:** The platform automatically trims the freeform shape so it does not overlap with existing boundaries.
-4. **Union:** The new freeform shape is merged into a single logical entity with an existing polygon.
+## Draw a freeform shape
 
-### **Customization: Point Density**
+<Steps>
+  <Step title="Arm the class">
+    Press the class hotkey (Product here) or click the class name.
+  </Step>
+  <Step title="Pick the Freeform tool">
+    Click the pen icon in the floating palette.
+  </Step>
+  <Step title="Press, trace, release">
+    Hold the mouse button down and follow the outline in one continuous motion. Releasing closes the shape automatically.
+  </Step>
+</Steps>
 
-The precision of the freeform-to-polygon conversion can be adjusted to match the complexity of the object:
+<video autoPlay muted loop playsInline className="w-full rounded-xl border border-zinc-200" src="/images/docs/editor/draw-freeform.mp4"></video>
 
-- **Point Frequency:** Users can control how many vertices are generated during the conversion. A higher density captures more detail, while a lower density creates a simpler, more manageable polygon.
-- **Configuration:** These settings are located under the **Freeform Settings** section within the **Canvas Settings** menu. Adjusting the frequency allows for a perfect balance between speed and geometric accuracy.
+<Frame caption="One stroke around the bag. The shape closes on release and joins Object Instances alongside the point annotations from earlier in this task.">
+  <img src="/images/docs/editor/freeform-result.jpg" alt="Blue freeform Product outline around a meringue bag in the PixlHub editor with the instance panel visible" />
+</Frame>
+
+## Refine after the stroke
+
+A freeform shape lands as an editable outline with vertex handles, so a wobbly section takes seconds to fix: switch to **Select**, click the shape, drag the offending handles.
+
+<Frame caption="Selected freeform shapes expose handles like any polygon; imperfect strokes are corrected, not redrawn.">
+  <img src="/images/docs/editor/freeform-zoom.jpg" alt="Zoomed view of a freeform annotation with vertex handles in PixlHub" />
+</Frame>
+
+## Stroke technique
+
+- **Slow hand, smooth outline.** Stroke speed maps directly to vertex density; a slower trace follows detail better.
+- **Zoom to the object first.** Freehand precision at 100 percent on a small object is luck, not skill.
+- **Do not chase every wrinkle.** Guideline-level fidelity beats pixel heroics; a clean approximate outline trains better than a jittery exact one.
+- **Fix, do not redo.** One rough section means dragging three handles, not redrawing the stroke.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Is a freeform shape different from a polygon in the data?">
+    Structurally they are both closed outlines. Freeform is a faster input method for the same kind of geometry, so exports treat them alike. Details in <a href="/guides/essentials/exports">Exports</a>.
+  </Accordion>
+  <Accordion title="My strokes come out shaky. Any settings to help?">
+    Zoom in further (canvas motion smooths relative to image pixels) and slow the stroke. A drawing tablet helps for all-day freehand work, though most annotators do fine with a mouse at higher zoom.
+  </Accordion>
+  <Accordion title="Can AI propose the outline instead?">
+    Yes. <a href="/guides/basics/ai-assisted-annotation">AI-assisted annotation</a> can generate an outline you only correct, which often beats hand-tracing on well-defined objects.
+  </Accordion>
+</AccordionGroup>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Polygon tool" icon="draw-polygon" href="/guides/basics/polygon">
+    Clicked vertices for angular, precise outlines.
+  </Card>
+  <Card title="AI-assisted annotation" icon="sparkles" href="/guides/basics/ai-assisted-annotation">
+    Model-proposed shapes you refine instead of draw.
+  </Card>
+</CardGroup>
