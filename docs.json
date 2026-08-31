@@ -61,6 +61,14 @@
             ]
           },
           {
+            "group": "AI & Automation",
+            "pages": [
+              "guides/ai/models",
+              "guides/ai/agents",
+              "guides/ai/plugins"
+            ]
+          },
+          {
             "group": "Collaboration",
             "pages": [
               "guides/essentials/teams-and-roles",

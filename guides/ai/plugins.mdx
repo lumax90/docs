@@ -1,0 +1,73 @@
+---
+title: "Plugins"
+description: "Extend PixlHub with plugins: data source, transform, export and integration extensions like the Web Scraper, Translator and n8n Connector, activated per workspace."
+---
+
+Every labeling operation eventually touches systems beyond the platform: data arrives from somewhere, results go somewhere, and automation glues the two. **Plugins** (under **Flow**) are PixlHub's extension catalog for exactly those edges, activated per workspace and available to your [workflows](/guides/projects/workflow) through the Plugin node.
+
+<Frame caption="The plugin catalog: category filters across the top, install state and version on every card.">
+  <img src="/images/docs/ai/plugins-catalog.jpg" alt="PixlHub Plugins page showing Translator, Web Scraper and n8n Connector plugins with category filters" />
+</Frame>
+
+## Categories
+
+| Category | What lives here |
+|---|---|
+| **Data Source** | Bringing data in from outside (scraping, feeds) |
+| **Transform** | Changing assets in place (translation, processing) |
+| **Export** | Pushing results to external destinations |
+| **AI** | Model-adjacent extensions |
+| **Integration** | Connecting external automation and tools |
+| **Annotation** | Extensions to the labeling experience itself |
+
+## The current catalog
+
+<Tabs>
+  <Tab title="Web Scraper">
+    **Data Source.** Extracts images and text from web pages through scraping APIs and imports the results straight into your project as assets. The fastest route from "the data is on these pages" to a filled [Assets](/guides/essentials/assets) tab, no manual download-and-upload loop.
+  </Tab>
+  <Tab title="Translator">
+    **Transform.** Translates text assets to a target language via Google Translate or DeepL, preserving the original text in metadata for rollback. Text-based projects only; the safety net in metadata means translation is reversible, not destructive.
+  </Tab>
+  <Tab title="n8n Connector">
+    **Integration.** Connects n8n automation workflows to your pipeline: trigger n8n flows via webhook, pass project and task data along, and receive processed results back. This is the general-purpose escape hatch; anything n8n can reach (Slack, sheets, internal APIs) becomes reachable from a PixlHub workflow.
+  </Tab>
+</Tabs>
+
+## Activation and use
+
+Plugins list as **Inactive** with their version until you enable them for the workspace. Once active, they participate in two places: their own configuration surface, and the **Plugin** node in the workflow editor, which lets a pipeline step hand tasks to the plugin and continue with its output.
+
+<Info>
+The catalog is versioned per plugin (the cards show v1.0.0 today) and grows independently of platform releases; check back after platform updates for new entries.
+</Info>
+
+## Choosing the right mechanism
+
+The Flow menu offers three extension mechanisms, and picking the right one saves rework:
+
+- Perception model you host yourself → [Models](/guides/ai/models)
+- Language task with a prompt → [Agents](/guides/ai/agents)
+- Moving data between PixlHub and other systems → **Plugins**, with the n8n Connector as the universal adapter when no dedicated plugin exists
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Can plugins run automatically?">
+    Yes, through the workflow: a Plugin node executes as tasks reach it, which is how scraping, translation or webhook handoffs become unattended steps instead of manual chores.
+  </Accordion>
+  <Accordion title="What if the integration I need is missing?">
+    The n8n Connector covers most gaps today, since n8n itself integrates with hundreds of services. For deeper needs, tell the PixlData team; the catalog is actively growing.
+  </Accordion>
+</AccordionGroup>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Project workflow" icon="diagram-project" href="/guides/projects/workflow">
+    Where Plugin nodes join the pipeline.
+  </Card>
+  <Card title="Assets" icon="image" href="/guides/essentials/assets">
+    Where scraped and imported data lands.
+  </Card>
+</CardGroup>

@@ -1,0 +1,79 @@
+---
+title: "Agents"
+description: "Configure LLM agents in PixlHub for text annotation, NER, captioning and workflow automation, with OpenAI, Anthropic, Google, Grok or fully local Ollama providers."
+---
+
+Some labeling work is language work: extracting entities, classifying passages, captioning images, judging responses. **Agents** (under **Flow**) are configurable LLM workers for exactly that: you pick a provider, write the system prompt, and the agent becomes a reusable participant in your projects and pipelines.
+
+<Frame caption="The Agents page with provider filters. Each agent is a named, prompted, reusable LLM configuration.">
+  <img src="/images/docs/ai/agents-page.jpg" alt="PixlHub Agents page with OpenAI, Anthropic, Google, Grok and Ollama provider filters" />
+</Frame>
+
+## Pick a provider
+
+<Tabs>
+  <Tab title="Cloud providers">
+    **OpenAI, Anthropic, Google and Grok (xAI)** run on your own API key ("your organization's API key for this provider"). Enter the key and PixlHub fetches the models available to your account for the Model dropdown. Costs accrue on your provider account, under your control.
+  </Tab>
+  <Tab title="Ollama (local)">
+    The **Ollama** provider points at models running on your own hardware: no data leaves your environment and no per-token bill arrives. The right choice for sensitive datasets (medical text, internal documents) where cloud processing is off the table.
+  </Tab>
+</Tabs>
+
+## Create an agent
+
+<Frame caption="New Agent: template or blank start, provider and model, and the system prompt that defines the job.">
+  <img src="/images/docs/ai/new-agent-modal.jpg" alt="PixlHub New Agent dialog with template, provider, model, API key, system prompt, temperature and max tokens" />
+</Frame>
+
+<Steps>
+  <Step title="Start from a template or blank">
+    The Template dropdown offers ready configurations; Start blank builds from scratch.
+  </Step>
+  <Step title="Name the job, not the model">
+    The form's own examples set the tone: "Medical NER Agent", "Image Captioner". Names describe what the agent does, so a team can pick the right one without reading prompts.
+  </Step>
+  <Step title="Write the system prompt">
+    This is the agent's job description. The placeholder shows the shape that works: "You are an expert annotator. Given the input data, extract named entities and return them as structured JSON spans." Be explicit about the output format you expect; structured output instructions are what make agent results usable downstream.
+  </Step>
+  <Step title="Tune the dials">
+    **Temperature** (default 0.7) trades consistency against creativity; annotation work usually wants it low. **Max Tokens** (default 2048) caps response length.
+  </Step>
+</Steps>
+
+## Where agents work
+
+- **In the pipeline:** the **Agent** node from the [workflow palette](/guides/projects/workflow) inserts the agent as a processing step, so tasks flow through LLM processing exactly where your process needs it.
+- **In the editor:** the **Agent** tab on the annotation screen's right rail brings agent assistance into the labeling session itself.
+
+## Prompts that behave
+
+- **Specify the output contract.** "Return JSON: [{label, start, end}]" beats "extract the entities" every time; parseable output is the difference between automation and cleanup.
+- **One agent, one job.** A NER agent and a sentiment agent with clean prompts outperform one agent with a paragraph of ifs.
+- **Test on ugly examples.** Prompts tuned on clean samples break on real data; feed the weird cases before rolling an agent into a pipeline.
+- **Low temperature for labeling.** 0.1 to 0.3 keeps repeated runs consistent, which is what annotation needs; save 0.7+ for generative tasks like captioning drafts.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Which provider should I pick?">
+    The one your organization already has keys, contracts and comfort with; capability differences matter less than governance for labeling tasks. For data that cannot leave your infrastructure, Ollama is the answer by construction.
+  </Accordion>
+  <Accordion title="Do agents replace human annotators?">
+    They replace the first draft, not the judgment. Agent output should flow through the same <a href="/guides/quality/review-workflow">review gates</a> as pre-labeling from vision models; the quality metrics will tell you how much trust each agent has earned.
+  </Accordion>
+  <Accordion title="How is this different from Models?">
+    <a href="/guides/ai/models">Models</a> wrap your own vision inference endpoints (detectors, segmenters); Agents wrap LLM providers with prompts. Perception versus language, roughly, and both plug into the same workflow palette.
+  </Accordion>
+</AccordionGroup>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Project workflow" icon="diagram-project" href="/guides/projects/workflow">
+    Where the Agent node joins the pipeline.
+  </Card>
+  <Card title="Models" icon="microchip" href="/guides/ai/models">
+    The vision-model counterpart for pre-labeling.
+  </Card>
+</CardGroup>
