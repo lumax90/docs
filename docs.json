@@ -54,8 +54,16 @@
             ]
           },
           {
+            "group": "Review & Quality",
+            "pages": [
+              "guides/quality/review-workflow",
+              "guides/quality/performance-analytics"
+            ]
+          },
+          {
             "group": "Collaboration",
             "pages": [
+              "guides/essentials/teams-and-roles",
               "guides/basics/comment",
               "guides/basics/guidelines"
             ]

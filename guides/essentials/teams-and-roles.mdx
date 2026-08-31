@@ -1,4 +1,71 @@
 ---
-title: 'Teams & Roles'
+title: "Teams and Roles"
+description: "Organize people in PixlHub: workspaces and organizations, inviting members as Admin or Member, and how project-level roles gate labeling, review and management."
 ---
 
+PixlHub separates people management into two layers: the **workspace** (also called an organization) that owns projects and members, and the **project-level roles** that decide who labels, who reviews and who manages inside each project.
+
+## Workspaces and organizations
+
+The workspace switcher in the top navigation shows which workspace you are in; everything you see (projects, tasks, team) belongs to the active one. Management lives on the **Organizations** page, reachable via **Manage** on the Dashboard's Team panel.
+
+<Frame caption="The Organizations page: every workspace you belong to, with member counts, pending invites and creation info.">
+  <img src="/images/docs/collab/organizations.jpg" alt="PixlHub Organizations page showing workspace list with members, invites and storage tabs" />
+</Frame>
+
+Each organization has three tabs: **Overview** (member and invite counts), **Members** (the roster with each person's role and join date), and **Storage** (the workspace's data footprint). **Create Organization** starts a fresh workspace, useful for separating clients, departments or experiments with entirely different teams.
+
+## Invite people
+
+From the Members tab, **Invite Member** sends an email invitation with a role attached:
+
+<Frame caption="The invite dialog: email plus role. Invitations show as pending until accepted.">
+  <img src="/images/docs/collab/invite-member.jpg" alt="PixlHub Invite Member dialog with email address field and role selection" />
+</Frame>
+
+| Organization role | What it means |
+|---|---|
+| **Owner** | The workspace creator: full control, including the organization itself |
+| **Admin** | Manages the workspace: projects, members, settings |
+| **Member** | Works inside projects they participate in |
+
+## Project-level roles
+
+Inside a project, capability is scoped further. Your role badge shows in the project header (a project **Manager** sees configuration tabs like Label Schema, Workflow and Settings), while day-to-day work splits along the pipeline:
+
+- **Labelers** pull tasks from the label queue, annotate and submit.
+- **Reviewers** act on the review queue with [accept and reject](/guides/quality/review-workflow).
+- **Managers** configure the project, watch [performance](/guides/quality/performance-analytics), and can do both of the above.
+
+The [workflow's](/guides/projects/workflow) assignment rule on each Label node ("Anyone", or specific people) is where membership meets the queue: it decides which members may pull which tasks.
+
+## Patterns that keep teams sane
+
+- **One workspace per trust boundary.** Clients or datasets that must never mix belong in separate organizations, not separate projects.
+- **Least role by default.** Invite as Member, elevate when responsibility arrives; demoting later is the awkward conversation.
+- **Reviewers are not optional at scale.** A second pair of eyes per task is the cheapest quality system that exists; wire it into the workflow rather than trusting discipline.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Can one person belong to several workspaces?">
+    Yes; the switcher in the top bar lists every workspace your account belongs to, and your role can differ in each.
+  </Accordion>
+  <Accordion title="Do labelers see each other's work?">
+    Task assignment controls this in practice: members work the queues their role and the workflow's assignment rules give them, and the Tasks table shows ownership per task.
+  </Accordion>
+  <Accordion title="What happens to someone's tasks when they leave?">
+    Their completed history stays on the tasks. In-progress assignments return to the queue for others to pull.
+  </Accordion>
+</AccordionGroup>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Project workflow" icon="diagram-project" href="/guides/projects/workflow">
+    Where assignment rules meet the queues.
+  </Card>
+  <Card title="Reviewing tasks" icon="clipboard-check" href="/guides/quality/review-workflow">
+    The reviewer role in action.
+  </Card>
+</CardGroup>
