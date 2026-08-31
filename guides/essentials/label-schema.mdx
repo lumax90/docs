@@ -1,45 +1,65 @@
 ---
 title: "Label Schema"
+description: "Define classes, colors, hotkeys and attributes in PixlHub: the schema editor, per-label attributes, global attributes, and how schema changes affect existing annotations."
 ---
 
-The **Label Schema** (or Ontology) is the structural blueprint of a project. It defines the rules, classifications, and metadata requirements for every annotation. PixlHub provides a highly flexible schema builder, allowing for granular data collection through nested hierarchies and diverse input types.
+The label schema is your project's vocabulary: the classes annotators can apply, the colors they render in, the hotkeys that make labeling fast, and the attributes that carry structured detail beyond the class itself. Settle it before labeling starts; every later change ripples through existing annotations.
 
-### **Building the Ontology**
+## Anatomy of a label
 
-A project is organized around **Classes** (e.g., "Vehicle," "Sign," "Obstacle"). To capture detailed information without cluttering the class list, each class can be refined with multiple **Attributes**.
+Each row in the **Labels** list carries more than a name:
 
-The schema supports several input types to ensure data is structured correctly:
+<Frame caption="An expanded label: name, color value, and the attributes section. The number on the right doubles as the annotator's hotkey.">
+  <img src="/images/docs/projects/schema-attributes.jpg" alt="PixlHub Label Schema editor with an expanded Pedestrian label showing color hex value and attributes area" />
+</Frame>
 
-- **Text:** For manual entries like license plates or serial numbers.
-- **Number:** For numerical values, counts, or measurements.
-- **Radio:** For selecting a single option from a list.
-- **Checkbox:** For simple boolean (True/False) properties.
-- **Dropdown:** For choosing one option from a large list.
-- **Multi-select:** For applying multiple relevant tags to a single object.
+- **Name**, what annotators see on chips and in the instance list.
+- **Color**, editable as a hex value; annotations render in it everywhere, so give visually adjacent classes distinguishable colors.
+- **Order number**, which is also the **hotkey** annotators press in the editor (shown there as "Hot: 1, 2, 3"). Put your highest-volume classes first.
+- **Attributes**, structured fields attached to this class only (expand the row and click **Add**): occlusion level for vehicles, ripeness for produce, whatever your downstream model needs beyond the class name.
+- Row controls for **duplicate** and **delete**, and a drag handle for reordering.
 
-![Label Schema 1](/images/label-schema-1.png)
+The **Global Attributes** tab defines attributes that apply across every class in the project, the right home for scene-level facts like weather or image quality.
 
-### **Nested (Child) Attributes**
+## Edit safely
 
-To manage complex data requirements, PixlHub utilizes **Child Attributes**. This feature introduces conditional logic to the annotation process, ensuring that the interface remains clean and focused.
+Changes are staged until you click **Save**, and saving asks for confirmation with the warning that matters: **schema changes may affect existing annotations**. Renames propagate; deletions orphan the annotations that carried the class. Two habits keep this painless:
 
-- **Conditional Logic:** Child attributes only appear when a specific "Parent" option is selected. For example, selecting "Vehicle Type: Truck" can trigger a sub-menu for "Trailer Type," which would remain hidden if "Sedan" were selected instead.
-- **UI Optimization:** By hiding irrelevant fields, child attributes reduce cognitive load for annotators, minimizing errors and speeding up the labeling process.
-- **Deep Hierarchies:** Managers can create multiple levels of nesting to capture high-fidelity data for specialized AI models.
+- Get the taxonomy reviewed in the schema editor **before** the first labeling session, not after the thousandth annotation.
+- When a class must split or disappear mid-project, pause labeling, change the schema, then sweep affected tasks back through [Review](/guides/projects/workflow) rather than trusting memory.
 
-### **Global Attributes**
+<Warning>
+Deleting a label does not delete quietly: annotations of that class lose their definition. Prefer renaming or repurposing over deletion once real data exists.
+</Warning>
 
-While standard attributes describe specific objects, **Global Attributes** are used to define metadata for the entire asset or task. These are ideal for capturing situational context, such as:
+## Designing a schema that labels well
 
-- **Environment:** Weather conditions (Rain, Snow), lighting (Day, Night), or location type.
-- **Data Quality:** Image clarity, sensor noise levels, or "Unlabelable" flags.
-- **Scene Classification:** Identifying the overall category of the frame (e.g., Urban, Rural, Highway).
+- **Fewer classes, clearer edges.** Ten crisp classes outperform thirty overlapping ones; ambiguity you leave in the schema returns as inconsistent data.
+- **Attributes beat class explosion.** "Vehicle" with a type attribute (car, bus, truck) scales better than five sibling classes, and keeps hotkeys manageable.
+- **Write the one-line rule per class** in your [Guidelines](/guides/basics/guidelines): the schema names the class, the guideline says when it applies, and annotators need both one click away.
+- **Mirror your model's output head.** The schema is effectively your dataset spec; if the model predicts three classes, a five-class schema is future rework.
 
-![Labelschema Globalattr](/images/labelschema-globalattr.png)
+## Frequently asked questions
 
-### **Customization & Efficiency**
+<AccordionGroup>
+  <Accordion title="Can annotations mix geometry types within one class?">
+    Yes. A class is about meaning, not shape: Product can be a box on one asset and a freeform outline on another, and exports preserve each annotation's geometry.
+  </Accordion>
+  <Accordion title="How many classes can a schema hold?">
+    Practically, keyboard reach is the real limit: hotkeys map to the order number, and schemas beyond ten classes trade away labeling speed. Attributes absorb detail better than extra classes.
+  </Accordion>
+  <Accordion title="Who can edit the schema?">
+    Schema editing is a project-management action, gated by role; labelers work with the schema rather than on it. See <a href="/guides/essentials/teams-and-roles">Teams and roles</a>.
+  </Accordion>
+</AccordionGroup>
 
-The Label Schema includes features designed to maximize annotator throughput and maintain visual organization:
+## Next steps
 
-- **Color Assignment:** Each class can be assigned a unique color. This makes the canvas instantly readable and helps distinguish between overlapping objects at a glance.
-- **Keyboard Shortcuts:** Classes and attributes can be mapped to specific hotkeys (e.g., **1, 2, 3, 4**). This allows annotators to switch between labels and confirm attributes without moving the mouse, significantly reducing the time-per-task.
+<CardGroup cols={2}>
+  <Card title="Guidelines" icon="book-open" href="/guides/basics/guidelines">
+    Where each class's when-to-use rule belongs.
+  </Card>
+  <Card title="Start annotating" icon="image" href="/guides/annotation-modules/image-annotation-tool">
+    The editor where hotkeys and colors come alive.
+  </Card>
+</CardGroup>

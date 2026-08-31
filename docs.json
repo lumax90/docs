@@ -14,48 +14,18 @@
         "tab": "Guides",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Getting Started",
             "pages": [
               "index",
-              "quickstart"
+              "quickstart",
+              "guides/basics/workspaces"
             ]
           },
           {
-            "group": "Basics",
+            "group": "Projects",
             "pages": [
-              "guides/basics/guidelines",
-              {
-                "group": "Canvas",
-                "pages": [
-                  "guides/basics/interactive-toolbar",
-                  "guides/basics/canvas-settings",
-                  "guides/basics/right-drawer",
-                  "guides/basics/class-definitions",
-                  "guides/basics/object-instances"
-                ]
-              },
-              {
-                "group": "Smart Annotation Palette",
-                "pages": [
-                  "guides/basics/smart-annotation-palette/smart-tool-palette",
-                  "guides/basics/bounding-box",
-                  "guides/basics/smart-annotation-palette/ocr-tool",
-                  "guides/basics/polygon",
-                  "guides/basics/line",
-                  "guides/basics/point",
-                  "guides/basics/freeform",
-                  "guides/basics/comment",
-                  "guides/basics/ai-assisted-annotation"
-                ]
-              },
-              "guides/basics/workspaces",
-              "guides/basics/global-controls"
-            ]
-          },
-          {
-            "group": "Essentials",
-            "pages": [
-              "guides/essentials/teams-and-roles",
+              "guides/projects/creating-a-project",
+              "guides/projects/workflow",
               "guides/essentials/assets",
               "guides/essentials/tasks",
               "guides/essentials/label-schema",
@@ -64,13 +34,30 @@
             ]
           },
           {
-            "group": "Annotation Modules",
+            "group": "Annotation Editor",
             "pages": [
               "guides/annotation-modules/image-annotation-tool",
-              "guides/annotation-modules/video-annotation-tool",
-              "guides/annotation-modules/audio-annotation-tool",
-              "guides/annotation-modules/rlhf-tool",
-              "guides/annotation-modules/lidar-tool"
+              "guides/basics/global-controls"
+            ]
+          },
+          {
+            "group": "Annotation Tools",
+            "pages": [
+              "guides/basics/smart-annotation-palette/smart-tool-palette",
+              "guides/basics/bounding-box",
+              "guides/basics/polygon",
+              "guides/basics/line",
+              "guides/basics/point",
+              "guides/basics/freeform",
+              "guides/basics/smart-annotation-palette/ocr-tool",
+              "guides/basics/ai-assisted-annotation"
+            ]
+          },
+          {
+            "group": "Collaboration",
+            "pages": [
+              "guides/basics/comment",
+              "guides/basics/guidelines"
             ]
           }
         ]
