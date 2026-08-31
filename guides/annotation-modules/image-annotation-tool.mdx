@@ -1,4 +1,113 @@
 ---
-title: "Image Annotation Module"
+title: "Image Annotation Editor"
+description: "How to use the PixlHub image annotation editor: layout, tools, class hotkeys, saving and submitting, and the panels that keep large tasks organized."
 ---
 
+The image editor is where labeling actually happens: one task, one image, and every tool you need to produce clean annotations without leaving the keyboard. This page maps the editor so you know where everything lives and which shortcuts make the work fast.
+
+<Info>
+The editor opens when you click **Start Labeling** on any image project, or open a task directly. What you can do inside depends on your project role: labelers annotate, reviewers accept or reject, and managers can do both.
+</Info>
+
+## The layout at a glance
+
+<Frame caption="The image editor: class definitions and object instances on the left, canvas and floating tool palette in the center, context tabs on the right rail.">
+  <img src="/images/docs/editor/editor-overview.png" alt="PixlHub image annotation editor with a street scene loaded, tool palette and class panel visible" />
+</Frame>
+
+Four regions do the work:
+
+| Region | What it does |
+|---|---|
+| **Class Definitions** (top left) | Your label schema with colors and hotkeys. Click a class or press its number to make it active. |
+| **Object Instances** (bottom left) | Every annotation in the task, with visibility and lock toggles per object. |
+| **Canvas** (center) | The image, your annotations, and a floating, draggable tool palette. |
+| **Right rail** | Context tabs: Comments, Guidelines, Data, Info, Agent and Canvas Settings. |
+
+The top bar carries task navigation (previous/next, task counter), the zoom and fit controls, undo and redo, and the save and submit actions. The status bar at the bottom shows live cursor coordinates and the size of the shape you are drawing.
+
+## Pick a tool
+
+The floating palette holds the annotation tools. Drag its handle to move it anywhere on the canvas.
+
+<Frame caption="The tool palette. From top: Select, Bounding Box, Point, Polygon, Cuboid, Line, Freeform and Comment.">
+  <img src="/images/docs/editor/tool-palette.png" alt="PixlHub floating tool palette with annotation tool icons" />
+</Frame>
+
+| Tool | Use it for |
+|---|---|
+| **Select** | Moving, resizing and editing existing annotations |
+| **Bounding Box** | Rectangular object detection labels, including rotating and OCR variants |
+| **Point** | Keypoints and landmarks |
+| **Polygon** | Precise outlines and segmentation-style regions |
+| **Cuboid** | Pseudo-3D boxes on 2D images |
+| **Line** | Lanes, edges, wires and other linear structures |
+| **Freeform** | Freehand drawing for irregular regions |
+| **Comment** | Pinning a discussion to a spot on the image |
+
+An **AI Tools** section expands below the palette with model-assisted options; see [AI-assisted annotation](/guides/basics/ai-assisted-annotation) for how pre-labeling works.
+
+## Work with classes and hotkeys
+
+Every class in your schema has a hotkey number. The loop that keeps annotation fast:
+
+1. Press the hotkey (or click the class) to arm it.
+2. Draw with the active tool. The annotation takes the armed class automatically.
+3. Check the running count next to each class name to track coverage.
+
+<Frame caption="Class hotkeys in the left panel. Press 1, 2 or 3 to switch classes without touching the mouse.">
+  <img src="/images/docs/editor/class-definitions.png" alt="Class definitions panel with Pedestrian, Traffic Sign and Vehicle and their hotkeys" />
+</Frame>
+
+## Keep large tasks organized
+
+Dense scenes accumulate dozens of objects. The **Object Instances** panel is how you stay oriented: every annotation is listed with its class color and ID, and each row has an eye toggle to hide the shape and a lock to protect it from accidental edits. Selecting a row highlights the shape on canvas, and a right-click opens the same context actions you get on the canvas itself.
+
+<Frame caption="Object instances with per-object visibility and lock controls.">
+  <img src="/images/docs/editor/object-instances.png" alt="Object instances panel listing two Vehicle annotations and one Pedestrian annotation" />
+</Frame>
+
+Two related controls live at the top of the canvas: **Group by** switches the instance list between flat and per-label grouping, and **Hide all objects** clears the canvas view when you need to see the raw image.
+
+## Save, submit, or skip
+
+The header offers distinct actions, and the difference matters for your workflow:
+
+- **Save annotations only** stores progress without moving the task. The task stays yours.
+- **Submit & Next** completes the task, sends it into the Review step, and loads the next queued task.
+- **Skip this task** passes the task without completing it, for images you cannot judge.
+- **Copy from previous task** pulls the previous task's annotations in, useful for near-duplicate frames.
+- **Clear all annotations** wipes the canvas for a fresh start.
+
+<Warning>
+Submitting is what moves a task forward in the workflow. Saved-but-unsubmitted tasks stay in the Label step and keep counting against your queue.
+</Warning>
+
+## The right rail
+
+Six tabs keep task context one click away without leaving the editor: **Comments** (threaded discussion on the task, including pinned comments from the Comment tool), **Guidelines** (the project instructions, so labelers never annotate from memory), **Data** (asset details), **Info** (task metadata and history), **Agent** (the AI assistant panel) and **Canvas Settings** (border widths, label rendering and other display preferences, covered in [Canvas Settings](/guides/basics/canvas-settings)).
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="My shortcut keys do nothing">
+    Click once anywhere on the canvas first. Keyboard shortcuts require the editor surface to have focus, so a stray click in a side panel can capture your keystrokes.
+  </Accordion>
+  <Accordion title="I drew a box but it has the wrong class">
+    Select it with the Select tool and press the correct class hotkey, or right-click the instance in the Object Instances panel to reassign it. Arming the right class before drawing is faster than fixing afterward.
+  </Accordion>
+  <Accordion title="The canvas feels cluttered">
+    Use the eye toggles in Object Instances to hide finished objects, or the global Hide all objects control in the canvas toolbar. Zoom with the controls in the top bar or your scroll wheel, and Fit to Screen resets the view.
+  </Accordion>
+</AccordionGroup>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Bounding boxes in depth" icon="square-dashed" href="/guides/basics/bounding-box">
+    The three box variants and precise drawing technique.
+  </Card>
+  <Card title="AI-assisted annotation" icon="sparkles" href="/guides/basics/ai-assisted-annotation">
+    Let models propose labels; you correct instead of drawing from scratch.
+  </Card>
+</CardGroup>

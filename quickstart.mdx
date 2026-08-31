@@ -1,55 +1,87 @@
 ---
-title: "Quickstart Guide"
-description: "This guide provides the essential steps to launch a first labeling project on PixlHub. The process is designed to take less than five minutes from setup to the first annotation."
+title: "Quickstart"
+description: "Create your first labeling project in PixlHub, upload images, define a label schema, and submit your first annotated task in about five minutes."
 ---
 
-### 1. Create an Organization
+This guide walks you through the complete PixlHub workflow: project, data, labels, annotation. By the end you will have a working image project with your first annotations submitted for review.
 
-The first step is setting up an **Organization**. This acts as the primary workspace where team members are managed and projects are hosted. Once the organization is created, it serves as the central hub for all data operations.
+<Info>
+You need a PixlHub account and a workspace. Every account starts with a default workspace; you can create more from the workspace switcher in the top navigation bar.
+</Info>
 
-<img
-  src="/images/EkranResmi2026-01-0913.01.44.png"
-  alt="Ekran Resmi2026 01 0913 01 44"
-  className="mx-auto"
-/>
+<Steps>
+  <Step title="Create a project">
+    Go to **Projects** and click **New Project**. Give the project a name, an optional description, and pick a **Tool Type**. The tool type decides which annotation editor opens for your tasks, so choose the one that matches your data: **Image**, **LiDAR / Point Cloud**, **Text**, or **RLHF**.
 
-### 2. Setup a Project
+    <Frame caption="The New Project dialog. This example creates an image project for street scene detection.">
+      <img src="/images/docs/quickstart/create-project.png" alt="PixlHub New Project dialog with project name, description and tool type selection" />
+    </Frame>
 
-Inside the organization, create a new project to define the workspace:
+    Click **Create**. PixlHub opens the project overview with a default workflow already in place: tasks move from **Label** to **Review** to **Done**.
+  </Step>
 
-- **Tool Type:** Choose the primary format (Image, Video, or Text).
-- **Ontology:** Define the classes (e.g., "Vehicle") and attributes (e.g., "Color") that will be used for labeling.
+  <Step title="Upload your data">
+    Open the **Assets** tab and click **Upload**. Drag files in or browse, then confirm with **Upload files**.
 
-  <img
-    src="/images/EkranResmi2026-01-0913.03.05.png"
-    alt="Ekran Resmi2026 01 0913 03 05"
-    className="mx-auto"
-  />
+    <Frame caption="The upload dialog shows file sizes, running totals and limits before anything is sent.">
+      <img src="/images/docs/quickstart/upload-assets.png" alt="PixlHub Upload Data dialog with eight image files selected and upload limits visible" />
+    </Frame>
 
-### 3. Import Data (Assets to Tasks)
+    Two details worth knowing at this stage:
 
-PixlHub simplifies the workflow by automatically converting uploaded files into actionable tasks.
+    - **Batch name** is optional but useful: it groups an upload so you can filter and export by batch later.
+    - Current limits per upload: **500 files, 100 MB per file, 512 MB total**. Supported image formats include JPG, PNG, GIF, WebP and SVG.
 
-- **Default Import:** When raw files (**Assets**) are uploaded, PixlHub automatically creates tasks for them and places them in the **Label** status.
-- **Prelabel Import:** If existing annotations are being migrated into PixlHub, they can be imported into the **Prelabel** status for further refinement.
+    PixlHub creates one task per uploaded asset automatically. Thumbnails appear in the Assets grid as processing completes.
+  </Step>
 
-### 4. Start Labeling
+  <Step title="Define the label schema">
+    Open the **Label Schema** tab and click **Add Label** for each class you need. Every label gets a color and a **hotkey number** (shown as "Hot: 1", "Hot: 2" and so on) that you will use constantly in the editor.
 
-There is no need to manually assign work. When a user clicks **"Start Labeling"** on the project dashboard, PixlHub automatically assigns the next available task from the queue to that user.
+    <Frame caption="Three classes with automatically assigned hotkeys. Expand a label to add attributes.">
+      <img src="/images/docs/quickstart/label-schema.png" alt="PixlHub Label Schema tab with Pedestrian, Traffic Sign and Vehicle classes" />
+    </Frame>
 
-### 5. Task Lifecycle
+    Click **Save** and confirm. Labels can be edited later, but renaming or removing classes after annotation has started affects existing annotations, so settle the taxonomy early.
+  </Step>
 
-Each task moves through a specific lifecycle based on its current progress. Understanding these four statuses is key to managing the project:
+  <Step title="Annotate your first task">
+    Click **Start Labeling** in the project header. The annotation editor opens with your first task queued.
 
-- **Prelabel:** Reserved for imported data that already contains initial annotations.
-- **Label:** The default starting point. Tasks in this status are in the queue, waiting to be picked up and labeled by a user.
-- **Review:** Once a user submits their work, the task moves to this status. It indicates the task is labeled but requires manager approval.
-- **Complete:** Tasks that have passed the review process and are finalized. These are ready for export.
+    The fastest loop for bounding boxes:
+
+    1. Press the class hotkey (for example **3** for Vehicle).
+    2. Click and drag on the image to draw the box.
+    3. Repeat. Each annotation appears in **Object Instances** on the left with its class and ID.
+
+    <Frame caption="Two Vehicle boxes and one Pedestrian box drawn with class hotkeys. The left panel tracks every object instance.">
+      <img src="/images/docs/quickstart/annotate-editor.png" alt="PixlHub annotation editor with labeled bounding boxes on a street scene and the object instances panel" />
+    </Frame>
+  </Step>
+
+  <Step title="Submit and keep going">
+    You have two ways to finish:
+
+    - **Save** stores your work without changing the task status. Use it when you are mid-task.
+    - **Submit & Next** completes the task, sends it to the Review step of the workflow, and loads the next task in the queue.
+
+    Progress, throughput and per-class counts accumulate in the project **Overview** and **Performance** tabs as you work.
+  </Step>
+</Steps>
+
+## Next steps
 
 <CardGroup cols={2}>
-  
+  <Card title="Image annotation editor" icon="image" href="/guides/annotation-modules/image-annotation-tool">
+    Every panel, tool and shortcut in the image editor.
+  </Card>
+  <Card title="Bounding boxes" icon="square-dashed" href="/guides/basics/bounding-box">
+    Standard, rotating and OCR-optimized box variants.
+  </Card>
+  <Card title="Teams and roles" icon="users" href="/guides/essentials/teams-and-roles">
+    Invite labelers and reviewers, control who sees what.
+  </Card>
+  <Card title="Exports" icon="download" href="/guides/essentials/exports">
+    Get annotations out in the format your training pipeline expects.
+  </Card>
 </CardGroup>
-
-<Note>
-  **Need help?** See our documentation or join our Slack channel.
-</Note>

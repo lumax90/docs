@@ -1,27 +1,86 @@
 ---
-title: "Bounding Box"
-description: "The Bounding Box is the fundamental tool for object detection and localization. In PixlHub, the Bounding Box is not a static tool; it can be adapted into three distinct variations depending on the project's requirements."
+title: "Bounding Box Tool"
+description: "Draw, edit and manage bounding box annotations in PixlHub, including the standard, rotating and PDF/OCR box variants and the shortcuts that speed them up."
 ---
 
-![Bounding Box Tool](/images/bounding-box-tool.jpeg)
+Bounding boxes are the workhorse of object detection datasets: a rectangle, a class, and if your model needs it, a heading. PixlHub's box tool is built around a hotkey-first loop so a practiced labeler rarely touches the interface between boxes.
 
-### **The Interactive Toolbar**
+<Info>
+The Bounding Box tool is available in image projects. Reviewers see the same boxes read-only with accept and reject controls instead of drawing tools.
+</Info>
 
-Upon selecting the Bounding Box from the **Smart Tool Palette**, the **Interactive Toolbar** (located just below the header) dynamically updates. While this toolbar typically houses general controls like zoom and fit-to-screen, it transforms to show specific modification modes whenever a drawing tool is active.
+## Choose a box variant
 
-This allows users to switch between different BBox behaviors on the fly without changing the underlying label schema.
+The tool ships in three variants, selectable from the canvas toolbar when Bounding Box is active:
 
-### **Bounding Box Variations**
+| Variant | What it does | Use it for |
+|---|---|---|
+| **Standard** | Regular axis-aligned rectangle | Most detection work: vehicles, people, products |
+| **Rotating** | Rectangle with a rotation handle | Objects at an angle: aerial imagery, tilted text, parked rows |
+| **PDF/OCR** | Optimized for text extraction | Documents and text regions feeding OCR |
 
-PixlHub supports three primary modes for box-based annotations:
+## Draw a box
 
-1. **Standard BBox:** The classic axis-aligned rectangular box used for general object detection. It follows standard industry behavior for resizing and placement.
-2. **Rotating BBox:** Accessible via the Interactive Toolbar, this mode allows the box to be rotated at any angle. This is essential for labeling objects that are not aligned with the horizontal or vertical axes (e.g., tilted vehicles or overhead aerial imagery).
-3. **OCR Box:** When this mode is active, the selected area is used to extract text content. The OCR Box automatically attempts to identify and digitize any text within the boundaries, linking the string data directly to the annotation.
+<Steps>
+  <Step title="Arm the class">
+    Press the class hotkey (shown next to each class in the left panel) or click the class name. Whatever you draw next takes this class.
+  </Step>
+  <Step title="Select the tool">
+    Click the Bounding Box icon in the floating palette if it is not already active.
+  </Step>
+  <Step title="Click and drag">
+    Press the mouse at one corner of the object, drag to the opposite corner, release. The status bar shows live width and height in pixels while you drag, and the finished box appears with its class label and a new entry in Object Instances.
+  </Step>
+</Steps>
 
-### **Interaction & Context Menu**
+<Frame caption="Boxes drawn with class hotkeys: the class chip renders on each box and every instance gets an ID.">
+  <img src="/images/docs/editor/bbox-example.png" alt="Bounding boxes labeled Vehicle and Pedestrian drawn on a busy street scene in PixlHub" />
+</Frame>
 
-Beyond the toolbar, Bounding Boxes include standard interactive features to maintain a high-speed workflow:
+## Edit an existing box
 
-- **Context Menu:** Right-clicking any BBox on the canvas opens a context menu. This provides quick access to common actions such as deleting, locking, or duplicating the label.
-- **Canvas Controls:** Standard drag-and-drop placement and corner-point resizing are available across all three BBox variations.
+Switch to the **Select** tool, then click any box:
+
+- **Move** by dragging the body of the box.
+- **Resize** with the corner and edge handles.
+- **Reclassify** by pressing a different class hotkey while the box is selected.
+- **Delete** with the Delete key, or from the right-click menu.
+
+Undo and redo in the top bar cover every one of these operations, so mistakes are cheap.
+
+## Work precisely
+
+Tight boxes make better training data than fast ones. Three habits that pay off:
+
+- **Zoom before you draw.** Use the scroll wheel or the zoom controls, draw at 200 percent for small or distant objects, then Fit to Screen to move on.
+- **Watch the pixel readout.** The status bar shows exact dimensions while dragging, which makes consistent minimum-size rules enforceable rather than aspirational.
+- **Lock finished objects.** In dense scenes, lock completed boxes from the Object Instances panel so a stray drag cannot nudge them.
+
+<Warning>
+Follow your project guidelines for occluded objects: whether a box should cover the visible part only or the estimated full extent is a project decision, not a personal one. The Guidelines tab in the right rail keeps the rules one click away.
+</Warning>
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Can I draw a box that extends past the image edge?">
+    Boxes clamp to the image bounds. For objects cut off by the frame, box the visible portion and follow your project's occlusion convention for attributes.
+  </Accordion>
+  <Accordion title="How do I change the box colors or label text size?">
+    Open Canvas Settings in the right rail. Border widths, label rendering and related display options are configurable per project and do not affect the stored annotations.
+  </Accordion>
+  <Accordion title="Is there a fastest possible loop?">
+    Hotkey, drag, hotkey, drag. Arm the class with a number key, draw, and only return to the panels when the scene is done. Combined with Copy from previous task on similar frames, this is the highest-throughput pattern in the editor.
+  </Accordion>
+</AccordionGroup>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Image annotation editor" icon="image" href="/guides/annotation-modules/image-annotation-tool">
+    The full editor tour: panels, palette, saving and submitting.
+  </Card>
+  <Card title="Polygon tool" icon="draw-polygon" href="/guides/basics/polygon">
+    When rectangles are not precise enough.
+  </Card>
+</CardGroup>
