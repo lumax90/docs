@@ -1,32 +1,86 @@
 ---
-title: "Polygon"
-description: "The Polygon Tool is used for high-precision instance and semantic segmentation. It allows for the annotation of complex or irregular shapes that cannot be accurately captured by standard bounding boxes."
+title: "Polygon Tool"
+description: "Draw precise polygon annotations in PixlHub: point-by-point outlines, vertex editing, and the workflow that keeps segmentation-grade labeling fast."
 ---
 
-<img
-  src="/images/polygon-tool-1.gif"
-  alt="Polygon Tool 1"
-  title="Polygon Tool 1"
-  className="mx-auto"
-/>
+When a rectangle would swallow half the background, you need a polygon. The Polygon tool traces an object point by point, which makes it the right choice for irregular shapes: billboards at an angle, vehicles in perspective, buildings, produce on a shelf, anything a box cannot hug.
 
-### **Getting Started**
+<Info>
+Available in image projects. Polygons live in the same schema as your other annotations, so a class can mix boxes and polygons freely; the class color and hotkey work identically for both.
+</Info>
 
-- **Tool Selection:** The Polygon Tool is selected via the **Smart Tool Palette**.
-- **Efficiency (Tool Persistence):** To speed up the workflow, the last selected tool remains active by default. There is no need to re-select the Polygon Tool after completing a shape; the user can immediately begin drawing the next object.
-- **Closing a Shape:** A polygon can be finalized in two ways:
-  1. Clicking back on the **starting point** (the first node).
-  2. Pressing the **Enter** key to automatically close the shape from the last point to the first.
+## Box or polygon?
 
-### **Interactive Toolbar: Polygon Modes**
+| Situation | Better tool |
+|---|---|
+| Object roughly rectangular, speed matters | [Bounding Box](/guides/basics/bounding-box) |
+| Irregular outline, background inside a box would pollute the label | **Polygon** |
+| Pixel-precise region for segmentation-style training | **Polygon** |
+| Freehand organic shapes where clicking vertices is slower than drawing | [Freeform](/guides/basics/freeform) |
 
-When the Polygon Tool is active, the **Interactive Toolbar** provides four specialized modes to handle overlapping shapes and complex geometries. These modes allow users to manage how new polygons interact with existing ones:
+## Draw a polygon
 
-1. **Overwrite:** The default mode. New polygons are drawn independently, regardless of existing annotations.
-2. **Subtract:** Used to cut out a section from an existing polygon. This is ideal for creating "holes" or removing specific parts from a larger shape (e.g., labeling a donut shape).
-3. **Auto Subtract:** A smart mode that automatically trims the new polygon so it does not overlap with existing shapes, ensuring perfectly aligned boundaries without manual effort.
-4. **Union:** Allows for the merging of two or more polygons. When used, the new shape is combined with a selected existing polygon to form a single, unified logical entity.
+<Frame caption="The two-step setup: arm the class with its hotkey, then pick the Polygon tool from the floating palette.">
+  <img src="/images/docs/editor/polygon-tool-annotated.png" alt="PixlHub editor with the class panel and Polygon tool highlighted with step markers" />
+</Frame>
 
-### **Precision & Speed**
+<Steps>
+  <Step title="Arm the class">
+    Press the class hotkey (shown as Hot: 1, 2, 3 in the class panel) or click the class name.
+  </Step>
+  <Step title="Select the Polygon tool">
+    Click the polygon icon in the floating palette.
+  </Step>
+  <Step title="Click each vertex">
+    Click along the object's outline. Every click drops a vertex; the shape fills with the class color as it forms.
+  </Step>
+  <Step title="Close the shape">
+    Double-click on the first vertex to close the polygon. It joins Object Instances with an ID like every other annotation.
+  </Step>
+</Steps>
 
-The tool is optimized for high-speed vertex placement. Whether defining a simple triangle or a complex 100-point boundary, the canvas remains responsive, allowing for professional-grade segmentation at scale.
+Here is the full loop on a real scene, from tool selection to a closed polygon:
+
+<video autoPlay muted loop playsInline className="w-full rounded-xl border border-zinc-200" src="/images/docs/editor/draw-polygon.mp4"></video>
+
+## Edit vertices
+
+Select a polygon with the **Select** tool and its vertices become draggable handles. Pull any vertex to refine the outline; the polygon reshapes live.
+
+<Frame caption="A selected polygon exposes its vertex handles for fine-tuning.">
+  <img src="/images/docs/editor/polygon-vertices-zoom.png" alt="Zoomed view of a Traffic Sign polygon with draggable vertex handles in PixlHub" />
+</Frame>
+
+As with every annotation, moving, reclassifying (press a different hotkey while selected) and deleting work the same way they do for boxes, and undo covers each vertex operation individually.
+
+## Work precisely
+
+- **Zoom first.** Vertex accuracy is a function of zoom level; draw detailed sections at 200 percent or closer.
+- **Fewer, better vertices.** A clean 8-point outline usually trains better than a shaky 40-point one, and it is far easier to edit later.
+- **Use the pixel readout.** The status bar shows cursor coordinates, useful when guidelines specify snapping or margins.
+- **Lock finished polygons.** Dense scenes plus draggable vertices invite accidents; the lock toggle in Object Instances prevents them.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Can I add or remove a vertex after closing the polygon?">
+    Select the polygon and drag existing vertices to reshape it. For a materially wrong outline, deleting and redrawing is usually faster than reworking many vertices.
+  </Accordion>
+  <Accordion title="Do polygons and boxes export differently?">
+    Both export with their geometry type preserved, so downstream formats receive polygons as point lists and boxes as rectangles. See <a href="/guides/essentials/exports">Exports</a> for format specifics.
+  </Accordion>
+  <Accordion title="Is there a faster way for organic, blob-like shapes?">
+    Yes, the Freeform tool draws continuous outlines instead of clicked vertices, and AI-assisted annotation can propose an outline you only correct. Polygon is the precision middle ground.
+  </Accordion>
+</AccordionGroup>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="AI-assisted annotation" icon="sparkles" href="/guides/basics/ai-assisted-annotation">
+    Let a model propose the outline; you adjust vertices instead of placing them.
+  </Card>
+  <Card title="Image annotation editor" icon="image" href="/guides/annotation-modules/image-annotation-tool">
+    The full editor tour: panels, palette, hotkeys, saving.
+  </Card>
+</CardGroup>
