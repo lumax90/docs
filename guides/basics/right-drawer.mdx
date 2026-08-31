@@ -1,4 +1,53 @@
 ---
-title: 'Right Drawer'
+title: "Right Drawer"
+description: "The context rail of the PixlHub editor: Comments, Guidelines, Dataset navigation, task Info and History, Agent assistance and Canvas Settings, one click from the canvas."
 ---
 
+Everything an annotator needs mid-task but does not need permanently on screen lives in the right rail: six tabs that slide out as drawers and disappear when you are done. The design goal is simple: never leave the task to answer a question about the task.
+
+## The six tabs
+
+| Tab | What slides out |
+|---|---|
+| **Comments** | The task's discussion threads, with unread indicator ([full guide](/guides/basics/comment)) |
+| **Guidelines** | The project's annotation rules, readable without leaving the canvas |
+| **Data** | The dataset drawer: browse and jump between the project's tasks |
+| **Info** | The task's details and history |
+| **Agent** | LLM assistance from your configured [Agents](/guides/ai/agents) |
+| **Canvas Settings** | Rendering preferences ([details](/guides/basics/canvas-settings)) |
+
+## The Data drawer
+
+A scrollable list of the project's assets with thumbnail, assignee, stage and status per row: the editor's answer to "let me check a different task" without a round-trip through the project page. Click an entry to jump.
+
+<Frame caption="The Dataset drawer: every task browsable from inside the editor.">
+  <img src="/images/docs/editor/dataset-drawer.jpg" alt="PixlHub dataset drawer listing assets with assignee, stage and status" />
+</Frame>
+
+## The Info drawer
+
+Two tabs cover the current task's paperwork:
+
+- **Details:** status chip, priority, time spent, stage, assignee, annotation count, skip state; the facts a reviewer or manager checks before judging progress.
+- **History:** the audit trail of status movements, the same trail exposed in the [Tasks table](/guides/essentials/tasks).
+
+<Frame caption="Info: the task's live facts on Details, its audit trail on History.">
+  <img src="/images/docs/editor/info-drawer.jpg" alt="PixlHub info drawer showing task details including stage, assignee and annotation count" />
+</Frame>
+
+## Working habits
+
+- **Guidelines open beats guidelines remembered.** Ambiguity mid-task is a two-second check, not a guess; and if the answer is missing there, that is [comment](/guides/basics/comment) material.
+- **Watch the Comments dot.** The unread indicator is how reviewer feedback reaches you on rejected tasks; opening the task and ignoring the rail wastes the feedback.
+- **Use Data for context, not for cherry-picking.** Jumping to a neighboring frame to check how you labeled the same object yesterday is good practice; skipping around the queue to find easy tasks defeats the workflow's bookkeeping.
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Comments" icon="message" href="/guides/basics/comment">
+    Pinned discussion, mentions and resolution.
+  </Card>
+  <Card title="Agents" icon="robot" href="/guides/ai/agents">
+    What powers the Agent tab.
+  </Card>
+</CardGroup>

@@ -1,4 +1,49 @@
 ---
-title: 'Canvas Settings'
+title: "Canvas Settings"
+description: "Tune how annotations render in the PixlHub editor: label visibility, crosshair, opacity, border weight and handle sizes, saved per project."
 ---
 
+Rendering preferences are personal and task-dependent: dense scenes want thin borders and low opacity, precision work wants a crosshair, demos want big labels. **Canvas Settings** (the gear at the bottom right of the editor, also on the right rail) is where you tune the canvas without touching the data.
+
+<Frame caption="The Canvas Settings panel: display toggles on top, annotation rendering sliders below.">
+  <img src="/images/docs/editor/canvas-settings-panel.jpg" alt="PixlHub Canvas Settings panel with display toggles and annotation opacity, border, point and anchor sliders" />
+</Frame>
+
+## Display toggles
+
+| Setting | What it does |
+|---|---|
+| **Show Labels** | Class chips on annotations; turn off to see pure geometry |
+| **Center Labels** | Moves chips from the corner to the shape's center |
+| **Crosshair** | Full-canvas guide lines that follow the cursor, for precise alignment |
+| **Lock Tool Selection** | Keeps the active tool from resetting between tasks |
+
+## Annotation rendering
+
+Five sliders control how shapes draw, all cosmetic and instant:
+
+- **Opacity** (default 85%) fills shape interiors; drop it when annotations hide the pixels you still need to judge.
+- **Border** (1.5x) is stroke weight; heavier reads better on busy imagery, thinner on dense scenes.
+- **Points** (6px) and **Anchors** (5px) size the point markers and the vertex handles on selected shapes.
+- **Freeform** (10) controls freeform stroke rendering.
+
+<Info>
+Settings are cosmetic only and apply per project, so your retail project and your street project can keep different tuning. Exports and stored annotations are untouched by any of them.
+</Info>
+
+## Combinations that work
+
+- **Dense scenes** (shelves, crowds): opacity down to ~50%, border 1x, labels off while drawing, on while reviewing.
+- **Precision landmarking:** crosshair on, zoom high, anchors a step larger.
+- **Screenshots and demos:** center labels on, border 2x, opacity up; geometry reads instantly.
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Canvas toolbar & shortcuts" icon="keyboard" href="/guides/basics/interactive-toolbar">
+    The view and history controls above the canvas.
+  </Card>
+  <Card title="Right drawer" icon="sidebar-flip" href="/guides/basics/right-drawer">
+    The context tabs where this panel lives.
+  </Card>
+</CardGroup>

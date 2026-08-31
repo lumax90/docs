@@ -1,4 +1,44 @@
 ---
-title: 'Class Definitions'
+title: "Class Definitions Panel"
+description: "The class panel in the PixlHub editor: arming classes by click or hotkey, reading live per-class counts, and the visibility controls that keep dense scenes workable."
 ---
 
+The top-left panel of the editor is the schema in action: every class from your [Label Schema](/guides/essentials/label-schema) with its color, its hotkey, and a live count of how many annotations of that class the current task carries.
+
+<Frame caption="Class definitions: color, name, hotkey and live count per class. The highlighted row is armed.">
+  <img src="/images/docs/editor/class-definitions.png" alt="PixlHub class definitions panel with Pedestrian, Traffic Sign and Vehicle classes and hotkeys" />
+</Frame>
+
+## Arming a class
+
+Whatever you draw takes the **armed** class, shown highlighted in the panel. Two ways to arm:
+
+- **Click** the class row.
+- **Press its hotkey**, the number shown as "Hot: 1", "Hot: 2" and so on (shortcuts 1 through 5 select labels, per the [shortcut reference](/guides/basics/interactive-toolbar)).
+
+Arming also reclassifies: select an existing annotation with the Select tool and press a different number, and the annotation switches class.
+
+## Reading the panel
+
+- The **count** on each row is per-task and live; when guidelines say "label every price tag", this is the scoreboard.
+- The **ACTIVE chip** in the header confirms how many classes the schema exposes here.
+- The **row menu** (the dots on hover) carries per-class actions without a trip back to the schema tab.
+
+## In dense scenes
+
+The counts turn coverage into arithmetic: eight vehicles visible, six on the counter, two to go. Combined with [Object Instances'](/guides/basics/object-instances) per-object visibility toggles, working one class at a time through a crowded frame stays tractable: arm, sweep the frame, check the count, next class.
+
+<Info>
+Panel order equals hotkey order, and both come from the schema; put the highest-volume classes first when [designing it](/guides/essentials/label-schema).
+</Info>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Label Schema" icon="tags" href="/guides/essentials/label-schema">
+    Where classes, colors and hotkeys are defined.
+  </Card>
+  <Card title="Object Instances" icon="layer-group" href="/guides/basics/object-instances">
+    The per-annotation counterpart to this panel.
+  </Card>
+</CardGroup>

@@ -1,0 +1,72 @@
+---
+title: "Cuboid Tool"
+description: "Draw pseudo-3D cuboid annotations on 2D images in PixlHub: two clicks for the front face, one for depth, Enter to finish."
+---
+
+Some models need more than a flat rectangle: vehicle pose, parcel dimensions, furniture orientation. The Cuboid tool draws a pseudo-3D box on a 2D image: a front face plus projected depth edges, giving downstream models the geometry a bounding box throws away.
+
+<Info>
+Cuboids annotate perspective on flat images. For true 3D boxes on point clouds, that is the LiDAR editor's territory with a dedicated project type.
+</Info>
+
+## Draw a cuboid
+
+<Steps>
+  <Step title="Arm the class and pick the tool">
+    Press the class hotkey, then click the cuboid icon in the floating palette.
+  </Step>
+  <Step title="Two clicks for the front face">
+    Click one corner of the object's front face, then the opposite corner, exactly like the two corners of a bounding box.
+  </Step>
+  <Step title="One click for depth">
+    Move toward the object's receding direction; the preview extends the depth edges. Click to set the depth point.
+  </Step>
+  <Step title="Enter to finish">
+    Enter completes the cuboid, and it joins Object Instances like any other annotation.
+  </Step>
+</Steps>
+
+<Frame caption="A finished cuboid on a sedan: filled front face, wireframe depth edges following the car's orientation.">
+  <img src="/images/docs/editor/cuboid-example.jpg" alt="Orange cuboid annotation on a white sedan in the PixlHub editor showing front face and depth edges" />
+</Frame>
+
+## Getting the geometry right
+
+- **Front face on the visible face.** Put the rectangle on the surface facing the camera (a car's front or rear); the depth edges then follow the body naturally.
+- **Depth follows the vanishing direction.** Drag depth along the object's real-world axis, using lane lines, shelf edges or building lines as perspective references.
+- **Edit like everything else.** Select the cuboid and its handles expose both face corners and depth for adjustment; reclassify with a hotkey, delete with Del, undo per operation.
+
+<Frame caption="The cuboid in scene context: perspective encoded that a flat box cannot express.">
+  <img src="/images/docs/editor/cuboid-context.jpg" alt="PixlHub editor with a cuboid annotation on a sedan in a busy street scene" />
+</Frame>
+
+## When cuboid beats box
+
+| Situation | Reason |
+|---|---|
+| Vehicle orientation matters (parking, traffic direction) | The depth edges encode heading |
+| Parcel and box measurement pipelines | Three visible dimensions instead of two |
+| Shelf-depth or furniture placement tasks | Perspective is the signal, not noise |
+| Plain detection with no pose need | Skip it, a [bounding box](/guides/basics/bounding-box) is faster |
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Is this real 3D data?">
+    It is perspective-annotated 2D: a front face plus a projected depth, in image coordinates. Genuinely metric 3D comes from LiDAR projects, where annotation happens in a point cloud.
+  </Accordion>
+  <Accordion title="How do cuboids export?">
+    With their full geometry (face and depth points), alongside other annotation types; downstream code reads them as eight-point projections. See <a href="/guides/essentials/exports">Exports</a>.
+  </Accordion>
+</AccordionGroup>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Bounding Box" icon="square-dashed" href="/guides/basics/bounding-box">
+    The flat sibling, for when pose does not matter.
+  </Card>
+  <Card title="Image annotation editor" icon="image" href="/guides/annotation-modules/image-annotation-tool">
+    The full tour of tools and panels.
+  </Card>
+</CardGroup>

@@ -37,6 +37,11 @@
             "group": "Annotation Editor",
             "pages": [
               "guides/annotation-modules/image-annotation-tool",
+              "guides/basics/interactive-toolbar",
+              "guides/basics/class-definitions",
+              "guides/basics/object-instances",
+              "guides/basics/right-drawer",
+              "guides/basics/canvas-settings",
               "guides/basics/global-controls"
             ]
           },
@@ -49,6 +54,7 @@
               "guides/basics/line",
               "guides/basics/point",
               "guides/basics/freeform",
+              "guides/basics/cuboid",
               "guides/basics/smart-annotation-palette/ocr-tool",
               "guides/basics/ai-assisted-annotation"
             ]
