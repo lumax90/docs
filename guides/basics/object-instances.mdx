@@ -1,4 +1,45 @@
 ---
-title: 'Object Instances'
+title: "Object Instances Panel"
+description: "Every annotation in the task as a managed list: selection sync with the canvas, per-object visibility and locking, grouping by label, and instance IDs for unambiguous discussion."
 ---
 
+Annotations pile up fast: a busy frame carries dozens of shapes, and the canvas alone stops being a manageable view. The **Object Instances** panel (bottom left of the editor) is the ledger: every annotation as a row with its class, its ID, and the controls that keep a crowded task under control.
+
+<Frame caption="Object instances: class color, name and ID per row, with visibility and lock toggles.">
+  <img src="/images/docs/editor/object-instances.png" alt="PixlHub object instances panel listing Vehicle and Pedestrian annotations with IDs" />
+</Frame>
+
+## Anatomy of a row
+
+- **Class color and name** identify what the annotation claims to be.
+- **The instance ID** (like #7302) names this exact annotation, which makes review feedback and discussions unambiguous: "the box is loose" helps nobody, "#7302 is loose" ends the search.
+- **The eye** hides the shape on canvas without deleting anything.
+- **The lock** protects the shape from selection and edits.
+- **The expand arrow** reveals the annotation's details.
+
+## Selection runs both ways
+
+Clicking a row highlights the shape on canvas; selecting a shape on canvas highlights its row. In dense scenes this two-way sync is the fastest way to find one object among forty, and a right-click on either side opens the same context actions.
+
+## Header controls
+
+- **Group by: None → Label** reorganizes the flat list into per-class groups, turning "forty rows" into "four folders".
+- **Hide all objects** clears the canvas view in one click, for when you need to see the raw image under your work.
+- **The sort control** reorders the list without touching the annotations.
+
+## Habits for heavy tasks
+
+- **Lock what is finished.** Vertex handles and draggable boxes invite accidents; locking completed objects makes the rest of the session safe.
+- **Hide by class, work by class.** Group by label, hide the finished classes, and the canvas only shows the work remaining.
+- **Quote IDs in comments.** A [pinned comment](/guides/basics/comment) plus an instance ID is feedback that cannot be misread.
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Class definitions" icon="tags" href="/guides/basics/class-definitions">
+    The per-class counterpart above this panel.
+  </Card>
+  <Card title="Reviewing tasks" icon="clipboard-check" href="/guides/quality/review-workflow">
+    Where instance-level clarity pays off most.
+  </Card>
+</CardGroup>

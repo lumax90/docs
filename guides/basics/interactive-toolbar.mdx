@@ -1,4 +1,60 @@
 ---
-title: 'Interactive Toolbar'
+title: "Canvas Toolbar & Shortcuts"
+description: "The annotation canvas toolbar in PixlHub: zoom and fit controls, undo and redo, tool variants, and the keyboard shortcuts that keep hands off the mouse."
 ---
 
+The strip above the canvas holds the controls you touch between annotations: view, history, and tool variants. Combined with the keyboard shortcuts, it is the difference between labeling and fighting the interface.
+
+<Frame caption="The canvas toolbar: zoom controls and current level, fit to screen, undo and redo, and the contextual tool-variant segment.">
+  <img src="/images/docs/editor/canvas-toolbar.png" alt="PixlHub canvas toolbar with zoom, fit to screen, undo, redo and tool variant buttons" />
+</Frame>
+
+## View controls
+
+- **Zoom In / Zoom Out** step the magnification; the current level shows between them. The scroll wheel zooms too, centered on your cursor, which is usually what you want mid-annotation.
+- **Fit to Screen** resets the view to show the whole image, the fastest recovery from deep zoom.
+- **Rotate Left / Right** are visible but marked coming soon.
+
+## History
+
+**Undo** and **Redo** cover annotation operations at fine grain: a vertex drag, a box resize, a deletion. Ctrl+Z and Ctrl+Y do the same from the keyboard, and since every edit is undoable, experimentation is free.
+
+## Tool variants
+
+The segment after the history buttons is contextual: it shows the variants of the active tool. With the Bounding Box tool selected, this is where **Standard**, **Rotating** and **PDF/OCR** live, as covered in [Bounding Box](/guides/basics/bounding-box).
+
+## Keyboard shortcuts
+
+The keyboard icon in the top-left header opens the reference popover:
+
+<Frame caption="The shortcut reference: tools on letters, classes on numbers.">
+  <img src="/images/docs/editor/keyboard-shortcuts.png" alt="PixlHub keyboard shortcuts popover listing tool and label shortcuts" />
+</Frame>
+
+| Shortcut | Action |
+|---|---|
+| **V** | Select tool |
+| **B** | Bounding Box |
+| **P** | Point tool |
+| **G** | Polygon tool |
+| **1–5** | Arm the label with that hotkey |
+| **Del** | Delete the selected annotation |
+| **Ctrl+Z / Ctrl+Y** | Undo / Redo |
+| **C** | Add comment |
+
+The working rhythm that falls out of these: number to arm the class, letter to pick the tool, draw, repeat. Hands leave the keyboard only to draw.
+
+<Info>
+Shortcuts need canvas focus; if keys stop responding, click once on the canvas and continue.
+</Info>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Canvas settings" icon="sliders" href="/guides/basics/canvas-settings">
+    Display and rendering preferences, saved per project.
+  </Card>
+  <Card title="Image annotation editor" icon="image" href="/guides/annotation-modules/image-annotation-tool">
+    The full editor tour.
+  </Card>
+</CardGroup>
