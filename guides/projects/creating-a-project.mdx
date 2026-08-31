@@ -1,0 +1,61 @@
+---
+title: "Creating a Project"
+description: "Create a labeling project in PixlHub: pick the right tool type, understand what gets provisioned, and set yourself up before the first asset is uploaded."
+---
+
+A project is the unit everything else in PixlHub hangs off: its assets, its label schema, its workflow, its team and its exports. Creating one takes thirty seconds; picking the right tool type deserves slightly more thought, because it decides which annotation editor your team will live in.
+
+<Steps>
+  <Step title="Open the dialog">
+    Go to **Projects** and click **New Project** (also available from the Dashboard's Quick Actions).
+  </Step>
+  <Step title="Name and describe it">
+    The name appears everywhere your team works, so favor descriptive over clever: "Street Scene Detection" beats "CV-Test-2". The description is optional but shows on the project header, a good place for one sentence about scope.
+  </Step>
+  <Step title="Pick the tool type">
+    This selects the editor for every task in the project:
+
+    | Tool type | Editor you get |
+    |---|---|
+    | **Image** | The 2D canvas: boxes, polygons, points, lines, freeform, comments |
+    | **LiDAR / Point Cloud** | The 3D point cloud environment |
+    | **Text** | Text annotation surface for classification and span labeling |
+    | **RLHF** | Response comparison and feedback workflows for LLM data |
+  </Step>
+  <Step title="Create">
+    PixlHub provisions the project with a default workflow (Label, then Review, then Done) and opens the project overview.
+  </Step>
+</Steps>
+
+<Frame caption="The Create Project dialog: name, optional description, and the tool type that determines the editor.">
+  <img src="/images/docs/projects/new-project-modal.jpg" alt="PixlHub Create Project dialog with name, description and tool type options" />
+</Frame>
+
+<Warning>
+Tool type is a structural choice, not a setting: it shapes the editor and task flow for the whole project. Mixed datasets (say, images plus text) belong in separate projects.
+</Warning>
+
+## What a new project contains
+
+Straight after creation you land on the project header with nine tabs. You will touch three of them before any labeling happens:
+
+- **[Label Schema](/guides/essentials/label-schema)**, to define your classes before anyone draws a shape.
+- **[Assets](/guides/essentials/assets)**, to upload the data; each asset automatically becomes a task.
+- **[Workflow](/guides/projects/workflow)**, already running the default Label, Review, Done pipeline, editable when you need more.
+
+The remaining tabs earn their keep once work starts: Tasks for queue management, Performance for throughput, Comments for discussion, Export for getting data out, and Settings for the project's own configuration.
+
+## Naming conventions that age well
+
+Teams running many projects converge on the same pattern: what the data is plus what the model needs, for example "Retail Shelf Audit" or "Highway LiDAR, Q3 batch". Status words in names ("final", "new", "v2-fixed") rot within a week; the workflow and task statuses already track state for you.
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Define the label schema" icon="tags" href="/guides/essentials/label-schema">
+    Classes, colors, hotkeys and attributes, before the first annotation.
+  </Card>
+  <Card title="Upload assets" icon="upload" href="/guides/essentials/assets">
+    Formats, limits, batches, and what happens after upload.
+  </Card>
+</CardGroup>
