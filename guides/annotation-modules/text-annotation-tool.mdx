@@ -1,0 +1,78 @@
+---
+title: "Text Annotation Module"
+description: "Label text in PixlHub: entity spans by highlighting, class hotkeys, the entities panel with character offsets, and flexible TXT, CSV and spreadsheet imports."
+---
+
+Text projects open a different editor: no canvas, no boxes, just your document and a highlighter that understands classes. Named entity recognition, span extraction and text classification data all come out of the same motion: select text, and it becomes a labeled span.
+
+<Info>
+Create a project with the **Text** tool type to get this editor. Text projects accept **TXT, CSV, TSV, MD and XLSX** uploads, with an import mode choice that matters: **each row = task** (a CSV of examples becomes a queue) or **each file = task**.
+</Info>
+
+## The editor
+
+<Frame caption="The text module: classes with hotkeys on the left, the document center, and every span in the Entities panel with exact character offsets.">
+  <img src="/images/docs/modules/text-editor-overview.jpg" alt="PixlHub text annotation editor showing a NASA article with color-coded entity spans for Person, Organization, Location, Date and Mission" />
+</Frame>
+
+The layout mirrors the image editor where it can: [class definitions](/guides/basics/class-definitions) with hotkeys top-left, the right rail with Comments, Guidelines, Dataset, Info and Agent, and the same Submit and save actions in the header. The center is the document, rendered clean and readable.
+
+## Label a span
+
+<Steps>
+  <Step title="Arm the class">
+    Press the class hotkey (1 through 5) or click the class: Person, Organization, whatever your schema defines.
+  </Step>
+  <Step title="Highlight the text">
+    Select the words with your cursor, exactly like selecting text anywhere. On release, the span takes the armed class and renders inline with its color.
+  </Step>
+  <Step title="Repeat, then submit">
+    The entity counter at the top right tracks progress; Submit & Next sends the task to review like any other.
+  </Step>
+</Steps>
+
+<video autoPlay muted loop playsInline className="w-full rounded-xl border border-zinc-200" src="/images/docs/modules/ner-spans.mp4"></video>
+
+<Frame caption="Spans render inline with class colors, readable at a glance even with five entity types in one sentence.">
+  <img src="/images/docs/modules/ner-spans-closeup.jpg" alt="Sentence with color-coded entity spans: date, mission, person names, location and organization" />
+</Frame>
+
+## The Entities panel
+
+Every span lists on the right, grouped by class, with its **exact character offsets** (like 38–52). Offsets are the ground truth NER training expects, and having them visible makes disputes precise: a reviewer can say "the Person span at 38–52 clips the surname" instead of describing a highlight.
+
+<Frame caption="The entities panel: per-class grouping, character offsets, and a filter for long documents.">
+  <img src="/images/docs/modules/entities-panel.jpg" alt="PixlHub entities panel listing labeled spans with character offsets grouped by class" />
+</Frame>
+
+## Working notes
+
+- **Punctuation discipline.** Decide in your [Guidelines](/guides/basics/guidelines) whether spans include trailing punctuation and honor it; offset-level consistency is what NER models learn from.
+- **Overlaps and nesting** are schema decisions: "Kennedy Space Center" as one Location or "Kennedy" as a Person inside it is a policy, not a preference.
+- **CSV row mode scales.** A thousand-row CSV becomes a thousand-task queue in one upload, with the workflow, review and metrics machinery working as usual.
+- **Agents fit naturally here.** A configured [NER agent](/guides/ai/agents) can propose spans that humans verify, the text counterpart of model pre-labeling.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="How do I fix a wrong span?">
+    Select it and press the correct class hotkey to reclassify, or delete it and re-highlight. Edits are undoable like everything else.
+  </Accordion>
+  <Accordion title="How does text data export?">
+    Spans export with class and character offsets, ready for standard NER training formats. See <a href="/guides/essentials/exports">Exports</a>.
+  </Accordion>
+  <Accordion title="What about document-level classification?">
+    The Text tool type covers classification-style projects too; the schema defines the classes, and the task-per-row import makes labeled example sets fast to produce.
+  </Accordion>
+</AccordionGroup>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Agents" icon="robot" href="/guides/ai/agents">
+    LLM pre-labeling for text tasks.
+  </Card>
+  <Card title="Imports" icon="file-import" href="/guides/essentials/imports">
+    Bringing existing text datasets in.
+  </Card>
+</CardGroup>

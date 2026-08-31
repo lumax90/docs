@@ -1,44 +1,56 @@
 ---
-title: "Introduction to PixlHub"
-description: "PixlHub is a high-performance data annotation platform designed to transform raw data into structured, production-ready training sets for AI models. It serves as a unified workspace that bridges the gap between massive datasets and high-precision ground truth."
-sidebarTitle: "Introduction to PixlHub"
+title: "PixlHub Documentation"
+description: "Learn PixlHub, the data labeling platform: guided quickstart, annotation tools, review workflows, AI-assisted labeling and team management."
 ---
 
-<img
-  src="/524_1x_shots_so.png"
-  alt=""
-  title=""
-  style={{ width:"100%" }}
-  className="mx-auto"
-/>
+PixlHub is a data labeling platform for building training datasets: image, text, LiDAR and RLHF projects with built-in review workflows, live quality metrics, and AI assistance from pre-labeling models to LLM agents.
 
-### The Architecture
+<Frame caption="The PixlHub editor at work: class hotkeys, precise annotations, and every object tracked as an instance.">
+  <img src="/images/docs/quickstart/annotate-editor.jpg" alt="PixlHub annotation editor with labeled vehicles, pedestrian and traffic sign on a street scene" />
+</Frame>
 
-PixlHub uses a structured hierarchy to maintain order across large-scale data operations:
+## Start here
 
-- **Organizations:** The highest administrative level. This is where teams, permissions, and multiple workspaces are managed.
-- **Projects:** The operational hub for specific labeling goals. Each project contains a unique **Ontology** (classes and attributes) and specialized annotation tools.
-- **Datasets & Assets:** The library of raw source files. Assets are uploaded once and can be utilized across multiple projects without data duplication.
-
-**Tasks:** The actual unit of production. PixlHub separates _Assets_ from _Tasks_, allowing for diverse labeling objectives to be generated from the same raw source material.\
-\
-**Optimized Annotation Flow** The interface is built for speed. With a keyboard-first design and a high-performance canvas, the platform remains fluid even when handling complex polygons or hundreds of objects in a single frame.
-
-**Integrated Quality Control** Quality is enforced through a dedicated **Review Workflow**. Managers can track every label in real-time, providing feedback, rejecting errors, or approving completions to ensure the final output meets strict accuracy thresholds.
-
-**Operational Insights** Project progress is monitored through live dashboards. PixlHub provides granular analytics on label distribution, annotator velocity, and time-per-task, offering full visibility into the project lifecycle.
-
-<Columns cols={2}>
-  <Card title="Quickstart Guide" icon="lightbulb">
-    The fastest way to get up and running. This section covers creating an organization, setting up a first project, and uploading the initial dataset to start labeling in minutes.
+<CardGroup cols={2}>
+  <Card title="Quickstart" icon="rocket" href="/quickstart">
+    Project, data, labels and your first submitted task in about five minutes.
   </Card>
-  <Card title="Key Essentials" icon="key-skeleton">
-    A deep dive into the PixlHub hierarchy. Learn how Organizations, Projects, Assets, and Tasks interact to keep large-scale data operations organized and scalable.
+  <Card title="Core concepts" icon="map" href="/core-concepts">
+    The seven ideas that make every screen predictable.
   </Card>
-  <Card title="Annotation Tools" icon="map">
-    A detailed look at the labeling interface. This guide explores the full suite of tools—from precision bounding boxes and polygons to complex classification attributes and keyboard shortcuts.
+</CardGroup>
+
+## Learn the platform
+
+<CardGroup cols={3}>
+  <Card title="Projects" icon="folder-open" href="/guides/projects/creating-a-project">
+    Creation, workflow, assets, tasks and schemas.
   </Card>
-  <Card title="Workflows & Exports" icon="network-wired">
-    Understand how to set up review cycles for quality control, track team performance through analytics, and export final annotations in various formats.
+  <Card title="Annotation editor" icon="image" href="/guides/annotation-modules/image-annotation-tool">
+    Panels, shortcuts and the full tool tour.
   </Card>
-</Columns>
+  <Card title="Annotation tools" icon="pen-ruler" href="/guides/basics/bounding-box">
+    Boxes, polygons, points, lines, freeform and cuboids.
+  </Card>
+  <Card title="Review & quality" icon="clipboard-check" href="/guides/quality/review-workflow">
+    Accept, reject, and the metrics that keep datasets honest.
+  </Card>
+  <Card title="AI & automation" icon="sparkles" href="/guides/ai/models">
+    Pre-labeling models, LLM agents and plugins.
+  </Card>
+  <Card title="Text module" icon="text" href="/guides/annotation-modules/text-annotation-tool">
+    Entity spans with character-exact offsets.
+  </Card>
+</CardGroup>
+
+## Popular tasks
+
+- [Upload data and understand batches](/guides/essentials/assets)
+- [Design a label schema that labels well](/guides/essentials/label-schema)
+- [Set up model pre-labeling](/guides/ai/models)
+- [Invite your team and assign roles](/guides/essentials/teams-and-roles)
+- [Export annotations for training](/guides/essentials/exports)
+
+<Info>
+New to data labeling entirely? The [PixlData blog](https://pixldata.com/blog) covers the wider practice: tool comparisons, annotation techniques and dataset quality guides.
+</Info>
