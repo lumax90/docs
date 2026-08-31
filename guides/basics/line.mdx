@@ -1,22 +1,74 @@
 ---
-title: "Line"
-description: "The Line Tool is designed for annotating linear structures and boundaries that do not require closed shapes. It is an essential tool for projects involving lane detection, wire tracking, or skeletal mapping."
+title: "Line Tool"
+description: "Annotate lanes, edges, shelf rails, cables and other linear structures in PixlHub with multi-point polylines, finished with a single Enter keystroke."
 ---
 
-### **Usage**
+Roads have lanes, shelves have rails, circuit boards have traces, and none of them fit in a rectangle. The Line tool draws multi-point polylines that follow any linear structure through the image, however it bends or recedes into perspective.
 
-- **Tool Selection:** Like other annotation tools, the Line Tool is accessed via the **Smart Palette**.
-- **Drawing:** Users can place consecutive points on the canvas to define the path of the line. The interface maintains high precision for both straight and multi-segmented lines.
-- **Finalizing:** To complete a line segment, users can press the **Enter** key or double-click the final point.
+<Info>
+Available in image projects. A line is a polyline: two clicks make a straight segment, more clicks trace a path. Lines share classes, hotkeys and the instance list with every other annotation type.
+</Info>
 
-### **Common Use Cases**
+## Draw a line
 
-While simple in nature, the Line Tool is frequently used for:
+<Frame caption="Supermarket example: the Shelf Edge class armed, the Line tool picked, and the finish rule worth memorizing.">
+  <img src="/images/docs/editor/line-tool-annotated.jpg" alt="PixlHub editor with the Shelf Edge class and Line tool highlighted, showing a long supermarket shelf" />
+</Frame>
 
-- **Road Markings:** Defining lanes and dividers in autonomous driving datasets.
-- **Boundaries:** Marking fences, walls, or architectural edges.
-- **Skeletonization:** Connecting keypoints to represent human or animal structures.
+<Steps>
+  <Step title="Arm the class">
+    Press the class hotkey (Shelf Edge is 3 in this project) or click the class name.
+  </Step>
+  <Step title="Pick the Line tool">
+    Click the line icon in the floating palette.
+  </Step>
+  <Step title="Click along the structure">
+    Each click drops a vertex; a dashed preview follows your cursor between clicks. Trace the edge with as many vertices as its curvature needs.
+  </Step>
+  <Step title="Press Enter to finish">
+    Enter completes the polyline. This is the detail everyone misses on day one: lines are open shapes, so there is no first vertex to double-click back to.
+  </Step>
+</Steps>
 
-### **Flexibility**
+The full sequence on a real shelf edge, three vertices and an Enter:
 
-As part of the **Smart Annotation Palette**, the Line Tool can be used interchangeably with other tools like Bounding Boxes or Polygons within the same project. This allows for comprehensive labeling of complex scenes where different geometry types are required.
+<video autoPlay muted loop playsInline className="w-full rounded-xl border border-zinc-200" src="/images/docs/editor/draw-line.mp4"></video>
+
+<Frame caption="The finished polyline hugs the shelf rail through perspective; the class chip and instance entry appear like any other annotation.">
+  <img src="/images/docs/editor/line-result-zoom.jpg" alt="Orange Shelf Edge polyline drawn along a supermarket shelf rail in PixlHub" />
+</Frame>
+
+## Edit a line
+
+Select the line with the **Select** tool and its vertices become draggable handles, exactly like polygon vertices. Drag to refine the path, press a different hotkey to reclassify, Delete to remove. Undo steps back through individual vertex operations.
+
+## Technique notes
+
+- **Vertices where the direction changes.** A straight rail needs two; a curving lane needs one per bend. Extra vertices on straight runs add noise, not precision.
+- **Perspective is normal.** Structures that recede (like this shelf) are the tool's home ground; place vertices at consistent visual landmarks such as shelf-lip corners.
+- **Zoom for the endpoints.** Where a line starts and stops is usually a guideline decision; zoom in at both ends so the cutoff is deliberate.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Line or polygon for something like a road marking?">
+    If the model needs the centerline or trajectory, use a line. If it needs the painted area itself (for segmentation), outline it with a <a href="/guides/basics/polygon">polygon</a>.
+  </Accordion>
+  <Accordion title="Can I continue a line after pressing Enter?">
+    No, Enter seals the shape. Draw a second line and keep them under the same class, or delete and redraw if it must be one continuous path.
+  </Accordion>
+  <Accordion title="How do lines export?">
+    As ordered vertex lists with class and metadata, so downstream code can treat them as polylines or sample them into points. Details in <a href="/guides/essentials/exports">Exports</a>.
+  </Accordion>
+</AccordionGroup>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Polygon tool" icon="draw-polygon" href="/guides/basics/polygon">
+    Closed outlines for regions instead of paths.
+  </Card>
+  <Card title="Freeform tool" icon="pen-nib" href="/guides/basics/freeform">
+    Continuous freehand drawing when clicking vertices is too slow.
+  </Card>
+</CardGroup>

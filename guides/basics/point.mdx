@@ -1,32 +1,81 @@
 ---
-title: "Point"
-description: "The Point Tool is used to mark specific coordinates or landmarks on the canvas. It is an essential tool for tasks requiring high spatial precision, such as keypoint detection, facial landmarking, or pose estimation."
+title: "Point Tool"
+description: "Mark exact locations with point annotations in PixlHub: keypoints, landmarks, price tags, defects, or anything your model should find at a single coordinate."
 ---
 
-<img
-  src="/images/point-tool.gif"
-  alt="Point Tool"
-  title="Point Tool"
-  className="mx-auto"
-/>
+Some labels are not regions, they are locations. A price tag on a shelf, a defect on a weld, a joint on a body, the corner of a court: one coordinate carries the whole meaning. The Point tool drops a class-colored marker exactly where you click, and nothing is faster for high-volume location labeling.
 
-### **Usage**
+<Info>
+Available in image projects. Points share the schema with your other annotation types, so a project can mix points, boxes and polygons per class without any special setup.
+</Info>
 
-- **Tool Selection:** The Point Tool can be activated via the **Smart Palette**.
-- **Placement:** Users can place a point by simply clicking on the target coordinate on the canvas. Each point acts as an independent annotation linked to the defined label schema.
-- **Precision:** The tool is designed to provide pixel-perfect accuracy, ensuring that the landmark is placed exactly where the user intends.
+## Place points
 
-### **Customization: Point Size**
+<Frame caption="Retail example: arm the Price Tag class, pick the Point tool, then click every tag on the shelf.">
+  <img src="/images/docs/editor/point-tool-annotated.jpg" alt="PixlHub editor with the Price Tag class and Point tool highlighted with step markers on a supermarket scene" />
+</Frame>
 
-To accommodate different image resolutions and visual requirements, the visibility of points can be adjusted:
+<Steps>
+  <Step title="Arm the class">
+    Press the class hotkey or click the class in the left panel. Every point you drop takes this class until you switch.
+  </Step>
+  <Step title="Pick the Point tool">
+    Click the point icon in the floating palette.
+  </Step>
+  <Step title="Click each location">
+    One click, one marker. The class chip renders next to each point and every marker becomes an entry in Object Instances.
+  </Step>
+</Steps>
 
-- **Adjustable Size:** The diameter of the points on the canvas is not fixed. Users can increase or decrease the point size to ensure they are clearly visible or to avoid obscuring fine details of the underlying asset.
-- **How to Change:** Point size settings are located under the **Canvas Settings** menu within the annotation interface. Adjusting this setting updates all points on the canvas in real-time.
+Watch the loop on a live task, four price tags in under ten seconds:
 
-### **Common Use Cases**
+<video autoPlay muted loop playsInline className="w-full rounded-xl border border-zinc-200" src="/images/docs/editor/draw-points.mp4"></video>
 
-The Point Tool is the primary choice for:
+<Frame caption="Each marker carries its class chip; the instance list keeps them selectable and countable.">
+  <img src="/images/docs/editor/point-results.jpg" alt="Price Tag point markers placed on shelf labels in a PixlHub retail task" />
+</Frame>
 
-- **Facial Landmarks:** Marking specific features like eyes, nose, or mouth corners.
-- **Human Pose Estimation:** Identifying joints and skeletal keypoints.
-- **Small Object Localization:** Pinpointing small or distant objects where a bounding box might be unnecessary.
+## Adjust and manage
+
+- **Move a point** with the Select tool by dragging its marker.
+- **Reclassify** by selecting the point and pressing another class hotkey.
+- **Count coverage** from the class panel: the number next to each class is a live count, which is exactly what you want when guidelines say "mark every price tag".
+- **Hide the clutter** with the eye toggles in Object Instances when markers start covering the pixels you still need to read.
+
+## Where points earn their keep
+
+| Scenario | Why points beat boxes |
+|---|---|
+| Keypoints and landmarks | The model predicts coordinates, not extents |
+| Counting tasks (shelf tags, cars in a lot, people in a crowd) | One click per object instead of four corner decisions |
+| Tiny objects | A 6-pixel object inside a drawn box is mostly background; a point is exact |
+| Defect location on industrial imagery | Position matters, the size is measured elsewhere |
+
+<Warning>
+Point accuracy is zoom-dependent. For dense scenes like shelf labels, zoom to 150-200 percent before clicking; a marker that is five pixels off on a tiny tag is a labeling error a reviewer will send back.
+</Warning>
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Can a single object carry multiple points?">
+    Yes. Points are independent annotations, so skeleton-style labeling (several named keypoints on one object) works by using one class per keypoint type, or attributes to distinguish them.
+  </Accordion>
+  <Accordion title="How do points export?">
+    As x and y coordinates with class and metadata, alongside your other annotation types. See <a href="/guides/essentials/exports">Exports</a> for format details.
+  </Accordion>
+  <Accordion title="What is the fastest way to place many points of different classes?">
+    Work class by class: arm one hotkey, sweep the whole image for that class, then switch. Class-switching per object costs more time than a second pass.
+  </Accordion>
+</AccordionGroup>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Bounding Box tool" icon="square-dashed" href="/guides/basics/bounding-box">
+    When the extent matters as much as the location.
+  </Card>
+  <Card title="Image annotation editor" icon="image" href="/guides/annotation-modules/image-annotation-tool">
+    The full editor tour: panels, palette, hotkeys, saving.
+  </Card>
+</CardGroup>
